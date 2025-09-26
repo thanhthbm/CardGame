@@ -1,0 +1,54 @@
+#registerPane{
+  -fx-background-image: url("../images/login.jpg");
+  -fx-background-size: cover;
+  -fx-background-position: center;
+}
+
+Label {
+  -fx-font-family: "Lucida Console";
+  -fx-text-fill: white;
+}
+
+#registerLabel {
+  -fx-font-size: 40;
+  -fx-alignment: center;
+}
+
+#usernameLabel {
+  -fx-font-size: 20;
+
+}
+
+#passwordLabel {
+  -fx-font-size: 20;
+}
+#switchLoginLabel{
+  -fx-font-size: 14;
+}
+
+#registerButton {
+  -fx-background-color: #D9D9D9;
+  -fx-background-radius: 25;
+  -fx-text-fill: black;
+  -fx-font-size: 28;
+}
+
+TextField{
+  -fx-font-size: 16;
+  -fx-border-radius: 25;
+}
+
+PasswordField{
+  -fx-font-size: 18;
+  -fx-border-radius: 25;
+}
+
+#loginButton {
+  -fx-background-color: transparent;
+  -fx-text-fill: white;
+  -fx-font-size: 14;
+}
+
+#loginButton:hover{
+  -fx-cursor: hand;
+}

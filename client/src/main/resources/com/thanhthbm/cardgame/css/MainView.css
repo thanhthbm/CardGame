@@ -1,0 +1,17 @@
+#mainPane{
+  -fx-background-image: url("../images/mainView.jpg");
+  -fx-background-size: cover;
+  -fx-background-position: center;
+}
+
+#playButton {
+  -fx-alignment: center;
+  -fx-font-family: "Lucida Console";
+  -fx-text-fill: white;
+  -fx-background-color: #153320;
+  -fx-background-radius: 30;
+}
+
+Button{
+  -fx-cursor: hand;
+}

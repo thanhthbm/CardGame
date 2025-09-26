@@ -1,0 +1,70 @@
+.root{
+  -fx-font-family: "Lucida Console";
+}
+
+#mainPane{
+  -fx-background-image: url("../images/login.jpg");
+  -fx-background-size: cover;
+}
+
+Button{
+  -fx-background-radius: 20;
+  -fx-text-fill: black;
+  -fx-background-color: white;
+
+}
+
+Button:hover{
+  -fx-cursor: hand;
+}
+
+#playButton{
+  -fx-font-size: 40;
+}
+
+#infoButton{
+  -fx-font-size: 20;
+}
+
+#logoPane{
+  -fx-background-image: url("../images/logo.png");
+  -fx-background-repeat: no-repeat;
+  -fx-background-size: contain;
+  -fx-background-position: center;
+  -fx-background-color: transparent;
+
+}
+
+#leaderboardLabel{
+  -fx-font-size: 38;
+  -fx-font-weight: bold;
+  -fx-alignment: center;
+  -fx-text-fill: white;
+  -fx-background-radius: 20;
+}
+
+#leaderboardPane {
+  -fx-background-color: #ffffff88; /* nền đen mờ */
+  -fx-background-radius: 16;
+  -fx-border-radius: 16;
+  -fx-border-color: white;
+  -fx-border-width: 1;
+}
+
+#leaderboardList{
+  -fx-background-color: rgba(255, 255, 255, 0.5);
+  -fx-background-radius: 16;
+  -fx-padding: 10;
+}
+
+#leaderboardList .viewport {
+  -fx-background-color: rgba(255, 255, 255, 0.25);
+}
+
+#leaderboardList .scroll-pane {
+  -fx-background-color: transparent;
+}
+
+#leaderboardList .list-cell {
+  -fx-background-color: transparent;
+}
