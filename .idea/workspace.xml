@@ -5,65 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/.idea/CardGameProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/SceneManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/MainView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/model/LeaderboardItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/model/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/LoginView.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/MainView.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/LoginView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/MainView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/RegisterView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/ClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/GameRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/controller/RoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/dao/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/dao/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/model/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/model/LeaderboardItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/client/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/client/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/client/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thanhthbm/cardgame/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thanhthbm/cardgame/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/AppContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thanhthbm/cardgame/controller/LoginViewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thanhthbm/cardgame/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thanhthbm/cardgame/net/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/ClientListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/thanhthbm/cardgame/css/LoginView.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/HomeView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/thanhthbm/cardgame/css/MainView.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/RegisterView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/thanhthbm/cardgame/fxml/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/thanhthbm/cardgame/fxml/MainView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/thanhthbm/cardgame/images/login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/login.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/thanhthbm/cardgame/images/mainView.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/mainView.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +129,7 @@
       <workItem from="1758809067167" duration="3729000" />
       <workItem from="1758812875571" duration="5233000" />
       <workItem from="1758854909479" duration="4856000" />
-      <workItem from="1758875553139" duration="6811000" />
+      <workItem from="1758875553139" duration="7699000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />
@@ -197,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758792041356</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1758883401609</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758883401609</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
