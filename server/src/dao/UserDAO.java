@@ -77,17 +77,18 @@ public class UserDAO extends DAO{
   }
 
   public List<LeaderboardItem> getLeaderboard(){
-    String query = "select * from users order by score desc limit 10";
-
-    try (PreparedStatement stmt = connection.prepareStatement(query);) {
+    String query = "select * from users";
+    List<LeaderboardItem> leaderboard = new ArrayList<>();
+    try(PreparedStatement stmt = connection.prepareStatement(query)) {
       ResultSet rs = stmt.executeQuery();
-      List<LeaderboardItem> leaderboard = new ArrayList<>();
       while (rs.next()) {
         leaderboard.add(new LeaderboardItem(rs.getString("username"), rs.getInt("score")));
       }
       return leaderboard;
     } catch (Exception e) {
-      throw new RuntimeException(e);
+      System.out.println(e.getMessage());
     }
+    return null;
   }
+
 }

@@ -3,7 +3,6 @@ package com.thanhthbm.cardgame.controller;
 import com.thanhthbm.cardgame.AppContext;
 import com.thanhthbm.cardgame.SceneManager;
 import com.thanhthbm.cardgame.constants.Screen;
-import com.thanhthbm.cardgame.model.UserDTO;
 import com.thanhthbm.cardgame.net.ClientListener;
 import com.thanhthbm.cardgame.net.GameClient;
 import javafx.application.Platform;
@@ -13,6 +12,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.Message;
+import model.Message.MessageType;
+import model.User;
 
 public class LoginView implements ClientListener {
   @FXML private Button loginButton;
@@ -25,16 +27,12 @@ public class LoginView implements ClientListener {
   @FXML private Label statusLabel;
 
   private GameClient client;
-  private final AppContext context = new AppContext();
 
   @FXML
   private void initialize() {
-    client = new GameClient("localhost", 5555, this);
-    try {
-      client.connect();
-    } catch (Exception e) {
-      setStatus("Failed to connect to server");
-    }
+    this.client = AppContext.getInstance().getClient();
+
+    this.client.setListener(this);
   }
 
   @FXML
@@ -51,7 +49,11 @@ public class LoginView implements ClientListener {
       return;
     }
 
-    client.login(username, password);
+    User u = new User(username, password);
+
+    Message message = new Message(MessageType.LOGIN, u);
+    client.sendMessage(message);
+
     loginButton.setDisable(true);
     setStatus("Logging in...");
   }
@@ -62,42 +64,34 @@ public class LoginView implements ClientListener {
     Platform.runLater(() -> loginButton.setDisable(false));
   }
 
+
   @Override
-  public void onDisconnected(Exception e) {
-    setStatus("Disconnected from server" + (e.getMessage() != null ? e.getMessage() : ""));
+  public void onMessageReceived(Message message) {
+    Platform.runLater(() -> {
+      if (message.getType() == MessageType.LOGIN_SUCCESS) {
+        goToHomeScene();
+      } else if (message.getType() == MessageType.LOGIN_FAILED) {
+        loginButton.setDisable(false);
+        setStatus("Login failed");
+      }
+    });
+
+  }
+
+  @Override
+  public void onDisconnected(String e) {
+    setStatus("Disconnected from server" + (e != null ? e : ""));
     Platform.runLater(() -> loginButton.setDisable(true));
   }
 
-  @Override
-  public void online(String line) {
-    System.out.printf("Online: %s\n", line);
 
-    Platform.runLater(() -> {
-      if (line.startsWith("LOGIN_OK")) {
-        setStatus("Logged in successfully");
-
-        String[] p = line.split("\\s+");
-
-        context.setClient(client);
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(Integer.parseInt(p[1]));
-        userDTO.setUsername(p[2]);
-        userDTO.setScore(Integer.parseInt(p[3]));
-        context.setCurrentUser(userDTO);
-
-        HomeView home = SceneManager.switchScene(Screen.HOME);
-        home.init(context);
-      } else if (line.startsWith("LOGIN_FAIL")) {
-        setStatus("Logged in failed");
-        loginButton.setDisable(false);
-      } else{
-        setStatus("Message: " + line);
-      }
-    });
-  }
 
   private void setStatus(String msg){
     System.out.printf("LoginView: " + msg);
     statusLabel.setText(msg);
+  }
+
+  private void goToHomeScene() {
+    SceneManager.switchScene(Screen.HOME);
   }
 }

@@ -6,6 +6,7 @@ import com.thanhthbm.cardgame.net.ClientListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import model.Message;
 
 public class RegisterView implements ClientListener {
 
@@ -15,14 +16,15 @@ public class RegisterView implements ClientListener {
   }
 
   @Override
-  public void onDisconnected(Exception e) {
+  public void onDisconnected(String e) {
 
   }
 
   @Override
-  public void online(String line) {
+  public void onMessageReceived(Message message) {
 
   }
+
 
   @FXML
   private Button loginButton;

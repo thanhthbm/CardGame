@@ -4,13 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ServerMain {
-
   private final int port = 5555;
-  private final Map<String, GameRoom> rooms = new HashMap<String, GameRoom>();
 
   public static void main(String[] args) throws Exception {
     new ServerMain().start();
-
   }
 
   public void start() throws Exception {
@@ -23,13 +20,5 @@ public class ServerMain {
     }
   }
 
-  public synchronized GameRoom getOrCreateRoom(String id) {
-    GameRoom room = rooms.get(id);
-    if (room == null) {
-      room = new GameRoom(id);
-      room.start();
-      rooms.put(id, room);
-    }
-    return room;
-  }
+
 }

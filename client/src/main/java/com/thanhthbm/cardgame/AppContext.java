@@ -1,13 +1,24 @@
 package com.thanhthbm.cardgame;
 
-import com.thanhthbm.cardgame.model.UserDTO;
 import com.thanhthbm.cardgame.net.GameClient;
+import model.User;
 
 public class AppContext {
+  private static final AppContext instance = new AppContext();
+
   private GameClient client;
-  private UserDTO currentUserDTO;
+  private User currentUser; // 2. Corrected field type to UserDTO
+
+  private AppContext() {}
+
+  public static AppContext getInstance() {
+    return instance;
+  }
 
   public GameClient getClient() {
+    if (client == null) {
+      throw new IllegalStateException("GameClient has not been initialized in App.java");
+    }
     return client;
   }
 
@@ -15,11 +26,11 @@ public class AppContext {
     this.client = client;
   }
 
-  public UserDTO getCurrentUser() {
-    return currentUserDTO;
+  public User getCurrentUser() {
+    return currentUser;
   }
 
-  public void setCurrentUser(UserDTO currentUserDTO) {
-    this.currentUserDTO = currentUserDTO;
+  public void setCurrentUser(User currentUserDTO) {
+    this.currentUser = currentUserDTO;
   }
 }

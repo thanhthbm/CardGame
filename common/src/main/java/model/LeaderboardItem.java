@@ -1,6 +1,9 @@
-package com.thanhthbm.cardgame.model;
+package model;
 
-public class LeaderboardItem {
+import java.io.Serializable;
+
+public class LeaderboardItem implements Serializable {
+  private static final long serialVersionUID = 4L;
   private final String username;
   private final int score;
 

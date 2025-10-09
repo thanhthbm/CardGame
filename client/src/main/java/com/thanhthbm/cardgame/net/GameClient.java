@@ -3,111 +3,95 @@ package com.thanhthbm.cardgame.net;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javafx.application.Platform;
+import model.Message;
 
 public class GameClient {
-  private final String host;
-  private final int port;
-  private ClientListener listener;
+  private static final GameClient instance = new GameClient();
 
+  public static GameClient getInstance() {
+    return instance;
+  }
+
+  private final String host = "localhost";
+  private final int port = 5555;
   private Socket socket;
-  private BufferedReader in;
-  private PrintWriter out;
-  private Thread readerThread;
-  private final AtomicBoolean running = new AtomicBoolean(false);
+  private ObjectInputStream in;
+  private ObjectOutputStream out;
 
-  public GameClient(String host, int port, ClientListener listener) {
-    this.host = host;
-    this.port = port;
-    this.listener = listener;
+  private volatile boolean connected;
+
+  private ClientListener clientListener;
+
+  public void setListener(ClientListener clientListener) {
+    this.clientListener = clientListener;
   }
 
-  public void connect() throws IOException {
-    if (running.get()) return;
-    socket = new Socket(host, port);
-    in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
-    out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true); //set auto flush to true
+  public void connect() {
+    if (connected) return;
 
-    running.set(true);
+    try {
+      socket = new Socket(host, port);
+      in = new ObjectInputStream(socket.getInputStream());
+      out = new ObjectOutputStream(socket.getOutputStream());
+      connected = true;
 
-    Platform.runLater(() -> listener.onConnected());
+      Thread readerThread = new Thread(this::listenLoop);
+      readerThread.setDaemon(true);
+      readerThread.start();
 
-    readerThread = new Thread(() -> this.readLoop(), "cg-client-reader");
-
-    readerThread.setDaemon(true);
-    readerThread.start();
-  }
-
-  private void readLoop() {
-    Exception e = null;
-    try{
-      String line;
-      while (running.get() && (line = in.readLine()) != null) {
-        final String msg = line;
-        Platform.runLater(() -> listener.online(msg));
+      if (clientListener != null) {
+        clientListener.onConnected();
       }
-    } catch (Exception ex) {
-      e = ex;
-    } finally {
-      running.set(false);
-      closeSocket();
-      final Exception cause = e;
-      Platform.runLater(() -> listener.onDisconnected(cause));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
 
+  }
 
+  private void listenLoop() {
+    try {
+      while (connected) {
+        Message message = (Message) in.readObject();
+        if (clientListener != null) {
+          // Gọi trực tiếp phương thức của listener từ luồng nền
+          clientListener.onMessageReceived(message);
+        }
+      }
+    } catch (Exception e) {
+      disconnect("Connection lost: " + e.getMessage());
     }
   }
 
-  private void closeSocket() {
-    if (out != null) {
+  public void sendMessage(Message message) {
+    if (!connected) return;
+    try {
+      out.writeObject(message);
       out.flush();
+    } catch (IOException e) {
+      disconnect("Failed to send message.");
     }
-    if (socket != null) {
-      try {
-        socket.close();
-      } catch (IOException e) {}
+  }
+
+  public void disconnect(String reason) {
+    if (!connected) return;
+    connected = false;
+    try {
+      if (socket != null && !socket.isClosed()) socket.close();
+    } catch (IOException e) {
+      // Ignore
     }
-    if (in != null) {
-      try {
-        in.close();
-      } catch (IOException e) {}
+    if (clientListener != null) {
+      clientListener.onDisconnected(reason);
     }
-
-    out = null;
-    in = null;
-    socket = null;
   }
 
-
-  public synchronized void close() {
-    running.set(false);
-    closeSocket();
-  }
-
-  public synchronized void sendLine(String line) {
-    if (!running.get() || out == null) return;
-    out.println(line);
-  }
-
-  public void login(String username, String password) {
-    sendLine(("LOGIN " + username + " " + password));
-  }
-
-  public void register(String username, String password) {
-    sendLine(("REGISTER " + username + " " + password));
-  }
-
-  public boolean isRunning() {
-    return running.get();
-  }
-
-  public void setListener(ClientListener listener) {
-    this.listener = listener;
-  }
 
 }

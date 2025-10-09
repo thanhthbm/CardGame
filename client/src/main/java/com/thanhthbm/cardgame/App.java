@@ -1,9 +1,8 @@
 package com.thanhthbm.cardgame;
 
 import com.thanhthbm.cardgame.constants.Screen;
+import com.thanhthbm.cardgame.net.GameClient;
 import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -14,6 +13,18 @@ public class App extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
+    GameClient gameClient = GameClient.getInstance();
+
+    AppContext.getInstance().setClient(gameClient);
+
+    try{
+      System.out.println("Attempting to connect to the server...");
+      gameClient.connect();
+    } catch (Exception e) {
+      e.printStackTrace();
+      System.out.println("Failed to connect to the server");
+    }
+
     SceneManager.init(stage);
     SceneManager.switchScene(Screen.MAIN);
 
@@ -22,5 +33,11 @@ public class App extends Application {
     stage.setWidth(1280);
     stage.setHeight(720);
     stage.show();
+  }
+
+  @Override
+  public void stop() throws Exception {
+    GameClient.getInstance().disconnect("Application closing.");
+    super.stop();
   }
 }

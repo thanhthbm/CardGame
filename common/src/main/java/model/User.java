@@ -1,11 +1,15 @@
-package com.thanhthbm.cardgame.model;
+package model;
 
-public class UserDTO {
+import java.io.Serializable;
+
+public class User implements Serializable {
+  private static final long serialVersionUID = 1L;
   private int id;
   private String username;
+  private String password;
   private int score;
 
-  public UserDTO() {
+  public User() {
   }
 
   public int getScore() {
@@ -16,10 +20,9 @@ public class UserDTO {
     this.score = score;
   }
 
-  public UserDTO(String username, int score) {
+  public User(String username, String password) {
     this.username = username;
-    this.score = score;
-
+    this.password = password;
   }
 
   public int getId() {
@@ -30,6 +33,9 @@ public class UserDTO {
     return username;
   }
 
+  public String getPassword() {
+    return password;
+  }
 
   public void setId(int id) {
     this.id = id;
@@ -39,4 +45,7 @@ public class UserDTO {
     this.username = username;
   }
 
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }

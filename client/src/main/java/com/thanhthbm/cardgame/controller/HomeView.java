@@ -1,11 +1,9 @@
 package com.thanhthbm.cardgame.controller;
 
 import com.thanhthbm.cardgame.AppContext;
-import com.thanhthbm.cardgame.model.LeaderboardItem;
+import model.LeaderboardItem; // Ensure this is from your 'common' module
 import com.thanhthbm.cardgame.net.ClientListener;
 import com.thanhthbm.cardgame.net.GameClient;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,73 +19,83 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import model.Message; // Ensure this is from your 'common' module
+
+import java.util.List;
 
 public class HomeView implements ClientListener {
-  private AppContext context;
+
   private GameClient client;
 
   @FXML
-  private ListView<LeaderboardItem> leaderboardList;
-  private final ObservableList<LeaderboardItem> items = FXCollections.observableArrayList();
-
-  public void init(AppContext context) {
-    this.context = context;
-    if (context != null) {
-      if (context.getClient() != null) {
-        this.client = context.getClient();
-        this.client.setListener(this);
-        this.client.sendLine("LEADERBOARD");
-      }
-    }
-
-  }
+  private ListView<model.LeaderboardItem> leaderboardList;
+  private final ObservableList<model.LeaderboardItem> items = FXCollections.observableArrayList();
 
   @FXML
   public void initialize() {
+    // 1. Set up the UI components
     leaderboardList.setItems(items);
     leaderboardList.setCellFactory(list -> new LeaderboardCell());
-    if (client == null) {
-      client = new GameClient("localhost", 5555, this);
-      try{
-        client.connect();
-        client.sendLine("LEADERBOARD");
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
+
+    // 2. Get the single, shared GameClient instance from AppContext
+    this.client = AppContext.getInstance().getClient();
+    // 3. Register this controller as the current listener for network events
+    this.client.setListener(this);
+
+    // 4. Send a Message to request the leaderboard data
+    // This replaces the old client.sendLine("LEADERBOARD")
+    client.sendMessage(new Message(Message.MessageType.GET_LEADERBOARD, null));
   }
 
   @Override
   public void onConnected() {
-    client.sendLine("LEADERBOARD");
+    // This is called when the connection is established.
+    // We can re-request data here if needed, for example, if the connection was lost and then re-established.
+    Platform.runLater(() -> {
+      System.out.println("HomeView: Connection active.");
+      client.sendMessage(new Message(Message.MessageType.GET_LEADERBOARD, null));
+    });
   }
 
   @Override
-  public void onDisconnected(Exception e) {
-    Platform.runLater(()-> System.out.println("Disconnected"));
+  public void onDisconnected(String reason) {
+    Platform.runLater(() -> {
+      // Optionally, display a status to the user that the connection was lost.
+      System.out.println("HomeView: Disconnected - " + reason);
+    });
   }
 
   @Override
-  public void online(String line) {
-    if (line.startsWith("LEADERBOARD")) {
-      Platform.runLater(() -> updateLeaderboad(line));
-    }
+  public void onMessageReceived(Message message) {
+    // Handle messages from the server on the JavaFX Application Thread
+    Platform.runLater(() -> {
+      switch (message.getType()) {
+        case LEADERBOARD:
+          // The payload should be a List of LeaderboardItem objects
+          if (message.getPayload() instanceof List) {
+            List<model.LeaderboardItem> leaderboardItems = (List<model.LeaderboardItem>) message.getPayload();
+            updateLeaderboardUI(leaderboardItems);
+          }
+          break;
 
+        // Handle other message types relevant to the Home screen
+        // case PLAYER_JOINED_ROOM:
+        //     ...
+        //     break;
+      }
+    });
   }
 
-  private void updateLeaderboad(String line) {
-    String[] p = line.split("\\s+");
-
-    List<LeaderboardItem> items = new ArrayList<>();
-    for (int i=1; i<p.length; i++){
-      String username = p[i].split("-")[0];
-      int score = Integer.parseInt(p[i].split("-")[1]);
-      items.add(new LeaderboardItem(username, score));
-    }
-    this.items.setAll(items);
-
+  /**
+   * Updates the leaderboard ListView with new data from the server.
+   * This method no longer needs to parse a string.
+   * @param leaderboardItems The list of items to display.
+   */
+  private void updateLeaderboardUI(List<LeaderboardItem> leaderboardItems) {
+    this.items.setAll(leaderboardItems);
   }
 
+  // The inner class LeaderboardCell remains unchanged as it's for UI rendering.
   private class LeaderboardCell extends ListCell<LeaderboardItem> {
     private final HBox root = new HBox();
     private final Circle avatar = new Circle(18);
@@ -96,7 +104,7 @@ public class HomeView implements ClientListener {
     private final Label scoreLabel = new Label();
     private final Label rankLabel = new Label();
 
-    public LeaderboardCell(){
+    public LeaderboardCell() {
       root.setSpacing(10);
       root.setAlignment(Pos.CENTER_LEFT);
       root.setPadding(new Insets(8));
@@ -113,13 +121,14 @@ public class HomeView implements ClientListener {
       root.setStyle("-fx-background-color: #f9fafb; -fx-background-radius: 10; -fx-border-color: #e5e7eb; -fx-border-radius: 10;");
     }
 
+    @Override
     protected void updateItem(LeaderboardItem item, boolean empty) {
       super.updateItem(item, empty);
       if (empty || item == null) {
         setGraphic(null);
       } else {
         nameLabel.setText(item.getUsername());
-        scoreLabel.setText(item.getScore()+" điểm");
+        scoreLabel.setText(item.getScore() + " điểm");
 
         avatar.setRadius(18);
         avatar.setFill(Paint.valueOf("#93c5Fd"));
@@ -128,6 +137,5 @@ public class HomeView implements ClientListener {
         setGraphic(root);
       }
     }
-
   }
 }
