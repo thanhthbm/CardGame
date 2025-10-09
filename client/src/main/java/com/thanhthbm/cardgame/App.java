@@ -1,5 +1,4 @@
 package com.thanhthbm.cardgame;
-
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.GameClient;
 import javafx.application.Application;

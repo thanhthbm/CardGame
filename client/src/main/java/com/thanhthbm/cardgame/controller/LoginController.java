@@ -16,7 +16,7 @@ import model.Message;
 import model.Message.MessageType;
 import model.User;
 
-public class LoginView implements ClientListener {
+public class LoginController implements ClientListener {
   @FXML private Button loginButton;
   @FXML private Button registerButton;
   @FXML private TextField usernameField;
@@ -31,7 +31,6 @@ public class LoginView implements ClientListener {
   @FXML
   private void initialize() {
     this.client = AppContext.getInstance().getClient();
-
     this.client.setListener(this);
   }
 
@@ -75,7 +74,6 @@ public class LoginView implements ClientListener {
         setStatus("Login failed");
       }
     });
-
   }
 
   @Override

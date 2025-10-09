@@ -4,6 +4,7 @@ import model.LeaderboardItem;
 import model.Message;
 import java.io.IOException;
 import model.Message.MessageType;
+import model.RegisterDTO;
 import model.User;
 
 /**
@@ -60,6 +61,23 @@ public class MessageHandler {
 
   private void handleRegister(Message message) {
     System.out.println("Processing registration for: " + message.getPayload());
+    RegisterDTO dto = (RegisterDTO) message.getPayload();
+
+    int result = this.userDAO.register(dto);
+    if (result > 0){
+      try {
+        clientHandler.sendMessage(new Message(MessageType.REGISTER_SUCCESS, null));
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    } else {
+      try {
+        clientHandler.sendMessage(new Message(MessageType.REGISTER_FAILED, null));
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      }
+    }
+
   }
 
   private void handleGetLeaderboard(Message message)  {

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import model.LeaderboardItem;
+import model.RegisterDTO;
 import model.User;
 
 public class UserDAO extends DAO{
@@ -29,14 +30,14 @@ public class UserDAO extends DAO{
   }
 
   //this method return id of registered account
-  public int register(User user){
+  public int register(RegisterDTO dto){
     String query = "insert into users(username, password, score) values(?,?,?)";
     try(
         PreparedStatement stmt = connection.prepareStatement(query,  PreparedStatement.RETURN_GENERATED_KEYS);
         ) {
 
-      stmt.setString(1, user.getUsername());
-      stmt.setString(2, user.getPassword());
+      stmt.setString(1, dto.getUsername());
+      stmt.setString(2, dto.getPassword());
       stmt.setInt(3, 0);
       stmt.executeUpdate();
       ResultSet rs = stmt.getGeneratedKeys();
@@ -47,7 +48,7 @@ public class UserDAO extends DAO{
       System.out.println(e.getMessage());
     }
 
-    return -1;
+    return 0;
   }
 
   public int getScore(int userId){

@@ -23,7 +23,7 @@ import model.Message; // Ensure this is from your 'common' module
 
 import java.util.List;
 
-public class HomeView implements ClientListener {
+public class HomeController implements ClientListener {
 
   private GameClient client;
 
