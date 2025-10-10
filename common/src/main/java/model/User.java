@@ -8,6 +8,13 @@ public class User implements Serializable {
   private String username;
   private String password;
   private int score;
+  private PlayerStatus status;
+
+  public enum PlayerStatus{
+    AVAILABLE,
+    INGAME,
+
+  }
 
   public User() {
   }
@@ -23,6 +30,7 @@ public class User implements Serializable {
   public User(String username, String password) {
     this.username = username;
     this.password = password;
+    this.status = PlayerStatus.AVAILABLE;
   }
 
   public int getId() {
@@ -47,5 +55,13 @@ public class User implements Serializable {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public void setStatus(PlayerStatus status) {
+    this.status = status;
+  }
+
+  public PlayerStatus getStatus() {
+    return status;
   }
 }

@@ -33,12 +33,28 @@ public class MessageHandler {
         handleRegister(message);
         break;
       case LOGOUT:
+        handleLogout(message);
         break;
       case GET_LEADERBOARD:
         handleGetLeaderboard(message);
         break;
+      case GET_ONLINE_LIST:
+        handleGetOnlineList();
+        break;
       default:
         System.out.println("Unknown message type: " + message.getType());
+    }
+  }
+
+  //gửi cho client danh sách các người chơi khác đang online (trừ chính mình)
+  private void handleGetOnlineList() {
+    List<User> onlinePlayers = server.getOnlineUsers(clientHandler.getUser().getUsername());
+
+    Message m = new Message(MessageType.ONLINE_LIST, onlinePlayers);
+    try {
+      clientHandler.sendMessage(m);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
@@ -50,6 +66,11 @@ public class MessageHandler {
       try {
         if (success) {
           clientHandler.sendMessage(new Message(Message.MessageType.LOGIN_SUCCESS, user));
+          //thêm người chơi vào luồng client handler đó
+          clientHandler.setUser(user);
+
+          //thêm người chơi vào danh sách người chơi đang online trên server
+          server.addClient(user.getUsername(), this.clientHandler);
         } else {
           clientHandler.sendMessage(new Message(Message.MessageType.LOGIN_FAILED, "Invalid username or password"));
         }
@@ -90,5 +111,13 @@ public class MessageHandler {
       System.out.println("Error sending message to client: " + e.getMessage());
       e.printStackTrace();
     }
+  }
+
+  private void handleLogout(Message message) {
+    if (this.clientHandler.getUser() != null) {
+      this.server.removeClient(clientHandler.getUser().getUsername());
+      this.clientHandler.setUser(null);
+    }
+
   }
 }

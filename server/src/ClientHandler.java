@@ -3,6 +3,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import model.Message;
+import model.User;
 
 public class ClientHandler extends Thread {
   private final Socket socket;
@@ -10,6 +11,7 @@ public class ClientHandler extends Thread {
   private ObjectOutputStream out;
   private ServerMain server;
   private MessageHandler messageHandler;
+  private User user;
 
   public ClientHandler(Socket socket, ServerMain server) {
     this.socket = socket;
@@ -34,12 +36,25 @@ public class ClientHandler extends Thread {
         } catch (IOException e) {
           e.printStackTrace();
           System.out.printf("Client %s disconnected.\n", socket.getInetAddress().getHostName());
-          break; // Exit the loop
+          break;
         }
       }
     } catch (IOException e) {
       e.printStackTrace();
       System.err.println("Error setting up streams for client: " + e.getMessage());
+    } finally {
+      //dọn dẹp: xóa user khỏi luồng, xóa user khỏi danh sách đang online trên server
+      if (this.user != null) {
+        server.removeClient(user.getUsername());
+      }
+      try {
+        //đóng luồng sau khi vòng while kết thúc
+        socket.close();
+        in.close();
+        out.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
   }
 
@@ -50,4 +65,11 @@ public class ClientHandler extends Thread {
     }
   }
 
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 }

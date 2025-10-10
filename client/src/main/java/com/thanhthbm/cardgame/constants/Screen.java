@@ -4,7 +4,7 @@ public enum Screen {
   MAIN("MainView"),
   LOGIN("LoginView"),
   REGISTER("RegisterView"),
-  GAME("game"), // Assuming 'game.fxml' and 'game.css'
+  LOBBY("LobbyView"),
   HOME("HomeView");
 
   private final String baseName;

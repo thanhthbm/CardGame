@@ -4,9 +4,11 @@ import java.io.Serializable;
 
 public class Message implements Serializable {
   private static final long serialVersionUID = 1L;
+
   public enum MessageType {
-    LOGIN, LOGOUT, REGISTER, LOGIN_FAILED, REGISTER_FAILED, LOGIN_SUCCESS, REGISTER_SUCCESS, LEADERBOARD_UPDATE, GET_LEADERBOARD,
-    LEADERBOARD
+    LOGIN, LOGOUT, REGISTER, LOGIN_FAILED, REGISTER_FAILED, LOGIN_SUCCESS, REGISTER_SUCCESS,
+    LEADERBOARD_UPDATE, GET_LEADERBOARD, LEADERBOARD,
+    GET_ONLINE_LIST, ONLINE_LIST
   }
 
   private MessageType type;

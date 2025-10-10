@@ -4,21 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/model/RegisterDTO.java" afterDir="false" />
+    <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="register feature">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/LobbyView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/LobbyView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/model/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/AppContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/HomeView.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/HomeView.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/LoginView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/RegisterView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/RegisterView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/MessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ServerMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,42 +63,43 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.App (1).executor": "Run",
-    "Application.App.executor": "Run",
-    "Application.ClientMain.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.ServerMain.executor": "Run",
-    "Maven.CardGame [clean].executor": "Run",
-    "Maven.CardGame [compile].executor": "Run",
-    "Maven.CardGame [package].executor": "Run",
-    "Maven.cardgame-parent [clean].executor": "Run",
-    "Maven.cardgame-parent [package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Thanh/Downloads/Compressed/restaurant/CardGame/CardGameProject/client/src/main/resources/com/thanhthbm/cardgame/images",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/Thanh/Downloads/Compressed/restaurant/CardGame/CardGameProject/server/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.App (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClientMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ServerMain.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CardGame [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CardGame [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CardGame [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.cardgame-parent [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.cardgame-parent [package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Thanh/Downloads/Compressed/restaurant/CardGame/CardGameProject/client/src/main/resources/com/thanhthbm/cardgame/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Thanh/Downloads/Compressed/restaurant/CardGame/CardGameProject/server/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Thanh\Downloads\Compressed\restaurant\CardGame\CardGameProject\client\src\main\resources\com\thanhthbm\cardgame\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Thanh\Downloads\Compressed\CardGame\client\src\main\resources\com\thanhthbm\cardgame\images" />
       <recent name="C:\Users\Thanh\Downloads\Compressed\restaurant\CardGame\CardGameProject\client\src\main\java\com\thanhthbm\cardgame\controller" />
       <recent name="C:\Users\Thanh\Downloads\Compressed\restaurant\CardGame\CardGameProject\client\src\main\resources\com\thanhthbm\cardgame\fxml" />
     </key>
@@ -186,7 +192,10 @@
       <workItem from="1759974953052" duration="438000" />
       <workItem from="1759975405049" duration="6777000" />
       <workItem from="1759982246513" duration="2031000" />
-      <workItem from="1760022197149" duration="3597000" />
+      <workItem from="1760022197149" duration="6692000" />
+      <workItem from="1760073081057" duration="4672000" />
+      <workItem from="1760085365837" duration="1408000" />
+      <workItem from="1760086818379" duration="8718000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />
@@ -212,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760023913583</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="register feature">
+      <option name="closed" value="true" />
+      <created>1760026117421</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760026117421</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,95 +238,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/ServerMain.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/ServerMain.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/ServerMain.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/Main.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>50</line>
-          <properties class="com.thanhthbm.cardgame.controller.HomeController" method="onConnected">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java</url>
-          <line>34</line>
-          <properties class="com.thanhthbm.cardgame.controller.HomeController" method="initialize">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="register feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="register feature" />
   </component>
 </project>

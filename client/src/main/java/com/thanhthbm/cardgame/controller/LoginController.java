@@ -68,6 +68,7 @@ public class LoginController implements ClientListener {
   public void onMessageReceived(Message message) {
     Platform.runLater(() -> {
       if (message.getType() == MessageType.LOGIN_SUCCESS) {
+        AppContext.getInstance().setCurrentUser((User) message.getPayload());
         goToHomeScene();
       } else if (message.getType() == MessageType.LOGIN_FAILED) {
         loginButton.setDisable(false);

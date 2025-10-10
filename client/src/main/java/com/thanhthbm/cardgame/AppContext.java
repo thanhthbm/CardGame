@@ -7,7 +7,7 @@ public class AppContext {
   private static final AppContext instance = new AppContext();
 
   private GameClient client;
-  private User currentUser; // 2. Corrected field type to UserDTO
+  private User currentUser;
 
   private AppContext() {}
 
