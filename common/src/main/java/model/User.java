@@ -13,7 +13,8 @@ public class User implements Serializable {
   public enum PlayerStatus{
     AVAILABLE,
     INGAME,
-
+    PENDING,
+    BUSY
   }
 
   public User() {

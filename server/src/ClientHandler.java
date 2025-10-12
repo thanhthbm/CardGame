@@ -12,6 +12,7 @@ public class ClientHandler extends Thread {
   private ServerMain server;
   private MessageHandler messageHandler;
   private User user;
+  private GameRoomHandler currentRoom;
 
   public ClientHandler(Socket socket, ServerMain server) {
     this.socket = socket;
@@ -28,7 +29,15 @@ public class ClientHandler extends Thread {
       while (true) {
         try {
           Message receivedMessage = (Message) in.readObject();
-          messageHandler.processMessage(receivedMessage);
+
+          GameRoomHandler currentRoom = getCurrentRoom();
+
+          if (currentRoom != null) {
+            currentRoom.postPlayerAction(receivedMessage);
+          } else {
+            messageHandler.processMessage(receivedMessage);
+          }
+
         } catch (ClassNotFoundException e) {
           e.printStackTrace();
           System.err.println("Received an unknown object type.");
@@ -71,5 +80,17 @@ public class ClientHandler extends Thread {
 
   public void setUser(User user) {
     this.user = user;
+  }
+
+  public void setCurrentRoom(GameRoomHandler currentRoom) {
+    this.currentRoom = currentRoom;
+  }
+
+  public GameRoomHandler getCurrentRoom() {
+    return currentRoom;
+  }
+
+  public void leaveRoom() {
+    this.currentRoom = null;
   }
 }

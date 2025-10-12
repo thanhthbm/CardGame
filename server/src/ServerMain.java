@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -50,7 +49,7 @@ public class ServerMain {
     return onlineUsers;
   }
 
-  private void sendPlayerList() {
+  public void sendPlayerList() {
     List<User> onlinePlayersList = new ArrayList<>();
 
     for (ClientHandler clientHandler : onlineClients.values()) {
@@ -71,4 +70,11 @@ public class ServerMain {
     }
   }
 
+  public Map<String, ClientHandler> getOnlineClients() {
+    return onlineClients;
+  }
+
+  public ClientHandler getClient(String targetUsername) {
+    return onlineClients.get(targetUsername);
+  }
 }

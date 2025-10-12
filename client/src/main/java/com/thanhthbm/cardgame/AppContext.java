@@ -1,6 +1,7 @@
 package com.thanhthbm.cardgame;
 
 import com.thanhthbm.cardgame.net.GameClient;
+import model.GameStartInfo;
 import model.User;
 
 public class AppContext {
@@ -8,6 +9,7 @@ public class AppContext {
 
   private GameClient client;
   private User currentUser;
+  private GameStartInfo startInfo;
 
   private AppContext() {}
 
@@ -32,5 +34,13 @@ public class AppContext {
 
   public void setCurrentUser(User currentUserDTO) {
     this.currentUser = currentUserDTO;
+  }
+
+  public GameStartInfo getStartInfo() {
+    return startInfo;
+  }
+
+  public void setStartInfo(GameStartInfo startInfo) {
+    this.startInfo = startInfo;
   }
 }

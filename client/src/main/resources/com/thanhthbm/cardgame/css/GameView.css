@@ -1,0 +1,20 @@
+/* Quy tắc cho ID của AnchorPane gốc */
+#gamePane {
+  -fx-background-image: url("../images/game.jpg");
+  -fx-background-size: cover;
+}
+
+/* Quy tắc cho class của các lá bài úp */
+.card-back {
+  -fx-image: url("../images/card/Back.png");
+}
+
+/* Quy tắc cho class của avatar */
+.avatar-image {
+  -fx-image: url("../images/avatar.png");
+}
+
+/* (Ví dụ) Lật một lá bài bằng cách thêm một styleClass mới trong code Java */
+.card-face-queen-hearts {
+  -fx-image: url("../images/card/Suit=Clubs, Number=2.png");
+}
