@@ -8,8 +8,8 @@ public class DAO {
   protected Connection connection;
 
   private static final String URL = "jdbc:mysql://localhost:3306/cardgame";
-  private static final String USER = "root";
-  private static final String PASS = "200320045";
+  private static final String USER = "trong";
+  private static final String PASS = "Trong2004@";
 
 
   public DAO() {

@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="refactor">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/ClientHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/GameRoomHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/MessageHandler$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/MessageHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/ServerMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/target/classes/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/server/target/classes/dao/UserDAO.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +58,8 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.App.executor": "Run",
+    "Application.ClientApplication.executor": "Run",
+    "Application.ServerApplication.executor": "Run",
     "Application.ServerMain.executor": "Run",
     "Maven.cardgame-parent [clean].executor": "Run",
     "Maven.cardgame-parent [package].executor": "Run",
@@ -57,7 +68,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "trong",
     "last_opened_file_path": "C:/Users/Thanh/Downloads/Compressed/restaurant/CardGame/CardGameProject/client/src/main/resources/com/thanhthbm/cardgame/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,7 +93,7 @@
       <recent name="com.thanhthbm.cardgame.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.ClientApplication">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.thanhthbm.cardgame.App" />
       <module name="CardGame" />
@@ -96,6 +107,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClientApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.thanhthbm.ClientApplication" />
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.thanhthbm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerApplication" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ServerMain" />
       <module name="server" />
@@ -103,8 +134,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ClientApplication" />
+      <item itemvalue="Application.ServerApplication" />
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.ServerMain" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClientApplication" />
+        <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.ServerMain" />
       </list>
@@ -147,13 +186,22 @@
       <option name="project" value="LOCAL" />
       <updated>1758883401609</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1760329145028</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760329145028</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="fetch online list feature" />
     <MESSAGE value="refactor" />
     <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
