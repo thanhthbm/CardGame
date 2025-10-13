@@ -1,4 +1,4 @@
-package com.thanhthbm.cardgame;
+package com.thanhthbm.cardgame.context;
 
 import com.thanhthbm.cardgame.net.GameClient;
 import model.GameStartInfo;

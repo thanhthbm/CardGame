@@ -1,6 +1,5 @@
 package com.thanhthbm.cardgame.controller;
 
-import com.thanhthbm.cardgame.SceneManager;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.GameClient;
 import javafx.fxml.FXML;

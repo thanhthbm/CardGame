@@ -1,7 +1,6 @@
 package com.thanhthbm.cardgame.controller;
 
-import com.thanhthbm.cardgame.AppContext;
-import com.thanhthbm.cardgame.SceneManager;
+import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.ClientListener;
 
@@ -24,33 +23,33 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import model.Card;
 import model.CardUpdateInfo;
 import model.GameResult;
-import model.GameStartInfo;
 import model.Message;
 import model.Message.MessageType;
 
 public class GameController implements ClientListener {
-  public HBox cardsContainer;
-  public Label player1NameLabel;
-  public Label player2NameLabel;
-  @FXML
-  public Label statusLabel;
-  public ProgressBar timerBar;
-  public Label timerLabel;
-  public VBox timerBox;
-  private Timeline countdownTimeline;
-  private final IntegerProperty timeLeft = new SimpleIntegerProperty();
-  @FXML
-  private ImageView card0, card1, card2, card3, card4, card5, card6, card7, card8, card9;
-  private List<ImageView> cardImageViews;
+  @FXML private AnchorPane gamePane;
+  @FXML private HBox cardsContainer;
+  @FXML private Label player1NameLabel;
+  @FXML private Label player2NameLabel;
+  @FXML private Label statusLabel;
+  @FXML private ProgressBar timerBar;
+  @FXML private Label timerLabel;
+  @FXML private VBox timerBox;
+  @FXML private ImageView card0, card1, card2, card3, card4, card5, card6, card7, card8, card9;
 
+  private List<ImageView> cardImageViews;
   private GameClient client;
   private boolean isMyTurn = false;
+  private Timeline countdownTimeline;
+  private final IntegerProperty timeLeft = new SimpleIntegerProperty();
+
 
 
   @FXML
@@ -191,6 +190,8 @@ public class GameController implements ClientListener {
     String myUsername = AppContext.getInstance().getCurrentUser().getUsername();
     boolean iAmWinner = myUsername.equals(result.getWinnerUsername());
 
+
+
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Kết quả ván đấu");
     alert.setHeaderText(iAmWinner ? "Chúc mừng, bạn đã thắng!" : "Bạn đã thua!");
@@ -205,6 +206,8 @@ public class GameController implements ClientListener {
     );
     alert.setContentText(content);
 
+    alert.initOwner(gamePane.getScene().getWindow());
+
     alert.showAndWait().ifPresent(response -> {
       LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
 
@@ -218,6 +221,7 @@ public class GameController implements ClientListener {
   private void onExitGame(ActionEvent event) {
     System.out.println("Exit game requested.");
     LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
+
 
     if (lobbyController != null) {
       lobbyController.refresh();

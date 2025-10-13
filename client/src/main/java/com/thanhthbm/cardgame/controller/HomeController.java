@@ -1,12 +1,12 @@
 package com.thanhthbm.cardgame.controller;
 
-import com.thanhthbm.cardgame.AppContext;
-import com.thanhthbm.cardgame.SceneManager;
+import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.AnchorPane;
 import model.LeaderboardItem;
 import com.thanhthbm.cardgame.net.ClientListener;
 import com.thanhthbm.cardgame.net.GameClient;
@@ -30,6 +30,8 @@ import model.Message;
 import java.util.List;
 
 public class HomeController implements ClientListener {
+  @FXML
+  private AnchorPane homePane;
 
   @FXML
   private Button playButton;
@@ -87,6 +89,7 @@ public class HomeController implements ClientListener {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Xác nhận");
     alert.setContentText("Bạn có chắc chắn muốn đăng xuất?");
+    alert.initOwner(homePane.getScene().getWindow());
     alert.showAndWait();
     if (alert.getResult() == ButtonType.OK) {
       Message message = new Message(Message.MessageType.LOGOUT, null);

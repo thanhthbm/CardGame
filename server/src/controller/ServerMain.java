@@ -1,3 +1,5 @@
+package controller;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -12,10 +14,6 @@ import model.User;
 public class ServerMain {
   private final int port = 5555;
   private final Map<String, ClientHandler> onlineClients = new ConcurrentHashMap<>();
-
-  public static void main(String[] args) throws Exception {
-    new ServerMain().start();
-  }
 
   public void addClient(String username, ClientHandler clientHandler) {
     onlineClients.put(username, clientHandler);

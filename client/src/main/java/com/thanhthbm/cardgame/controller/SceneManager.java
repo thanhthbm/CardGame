@@ -1,4 +1,4 @@
-package com.thanhthbm.cardgame;
+package com.thanhthbm.cardgame.controller;
 
 import com.thanhthbm.cardgame.constants.Screen;
 import java.io.IOException;

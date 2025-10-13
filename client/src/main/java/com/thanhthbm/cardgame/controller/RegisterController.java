@@ -1,7 +1,6 @@
 package com.thanhthbm.cardgame.controller;
 
-import com.thanhthbm.cardgame.AppContext;
-import com.thanhthbm.cardgame.SceneManager;
+import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.ClientListener;
 import com.thanhthbm.cardgame.net.GameClient;
@@ -13,11 +12,15 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import model.Message;
 import model.Message.MessageType;
 import model.RegisterDTO;
 
 public class RegisterController implements ClientListener {
+  @FXML
+  private AnchorPane registerPane;
+
   @FXML
   private Button loginButton;
   private GameClient client;
@@ -44,18 +47,27 @@ public class RegisterController implements ClientListener {
 
   @Override
   public void onMessageReceived(Message message) {
-    if (message.getType() == MessageType.REGISTER_SUCCESS) {
-      System.out.println("Register success");
-      Platform.runLater(() -> {
-        showAlert("Thành công", "Đăng ký tài khoản thành công");
-        usernameField.clear();
-        passwordField.clear();
-      });
-    } else{
-      Platform.runLater(() -> {
-        showAlert("Thất bại", "Đăng ký tài khoản thất bại. Vui lòng thử lại");
-      });
-    }
+    Platform.runLater(() -> {
+      switch (message.getType()) {
+        case REGISTER_SUCCESS:
+          System.out.println("Register success");
+          showAlert("Thành công", "Đăng ký tài khoản thành công!");
+          usernameField.clear();
+          passwordField.clear();
+          break;
+
+        case REGISTER_FAILED:
+          String reason = "Đăng ký tài khoản thất bại. Vui lòng thử lại.";
+          if (message.getPayload() instanceof String) {
+            reason = (String) message.getPayload();
+          }
+          showAlert("Thất bại", reason);
+          break;
+
+        default:
+          break;
+      }
+    });
   }
 
 
@@ -94,6 +106,8 @@ public class RegisterController implements ClientListener {
     alert.setTitle(title);
     alert.setHeaderText(null);
     alert.setContentText(message);
+    alert.initOwner(registerPane.getScene().getWindow());
+    alert.getDialogPane().lookup(".content.label").setStyle("-fx-text-fill: black;");
     alert.showAndWait();
   }
 }

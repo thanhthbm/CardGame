@@ -92,4 +92,19 @@ public class UserDAO extends DAO{
     return null;
   }
 
+  public boolean isUsernameExists(String username) {
+    String query = "SELECT 1 FROM users WHERE username = ? LIMIT 1";
+    try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+      pstmt.setString(1, username);
+      try (ResultSet rs = pstmt.executeQuery()) {
+        return rs.next();
+      }
+    } catch (Exception e) {
+      System.out.println("Lỗi khi kiểm tra username: " + e.getMessage());
+      return true;
+    }
+  }
+
+
+
 }

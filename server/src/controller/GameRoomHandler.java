@@ -1,3 +1,5 @@
+package controller;
+
 import constant.Rank;
 import constant.Suit;
 import dao.UserDAO;

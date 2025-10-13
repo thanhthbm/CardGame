@@ -1,7 +1,6 @@
 package com.thanhthbm.cardgame.controller;
 
-import com.thanhthbm.cardgame.AppContext;
-import com.thanhthbm.cardgame.SceneManager;
+import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.ClientListener;
 import com.thanhthbm.cardgame.net.GameClient;
@@ -202,6 +201,7 @@ public class LobbyController implements ClientListener {
     });
 
     timeout.play();
+    alert.initOwner(lobbyPane.getScene().getWindow());
 
     Optional<ButtonType> result = alert.showAndWait();
 

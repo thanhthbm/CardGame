@@ -1,4 +1,5 @@
-import com.mysql.cj.xdevapi.Client;
+package controller;
+
 import dao.UserDAO;
 import java.util.List;
 import model.ChallengeResponse;
@@ -67,6 +68,20 @@ public class MessageHandler {
   private void handleLogin(Message message) {
     if (message.getPayload() instanceof User) {
       User user = (User) message.getPayload();
+
+      ClientHandler loggedInUser = this.server.getClient(user.getUsername());
+      if (loggedInUser != null) {
+        Message m = new Message(MessageType.LOGIN_FAILED, "user này đã đăng nhập!");
+        try {
+          clientHandler.sendMessage(m);
+        } catch (IOException e) {
+          e.printStackTrace();
+          System.out.println("Cannot send login message");
+        }
+
+        return;
+      }
+
       boolean success = this.userDAO.checkLogin(user);
 
       try {
@@ -90,6 +105,16 @@ public class MessageHandler {
     System.out.println("Processing registration for: " + message.getPayload());
     RegisterDTO dto = (RegisterDTO) message.getPayload();
 
+    if (userDAO.isUsernameExists(dto.getUsername())) {
+      try {
+        clientHandler.sendMessage(new Message(MessageType.REGISTER_FAILED, (String)"username đã tồn tại"));
+      } catch (IOException e) {
+        e.printStackTrace();
+        System.out.println("Failed to send register response to client: " + e.getMessage());
+      }
+      return;
+    }
+
     int result = this.userDAO.register(dto);
     if (result > 0){
       try {
@@ -99,7 +124,7 @@ public class MessageHandler {
       }
     } else {
       try {
-        clientHandler.sendMessage(new Message(MessageType.REGISTER_FAILED, null));
+        clientHandler.sendMessage(new Message(MessageType.REGISTER_FAILED, (String)"Đã có lỗi xảy ra"));
       } catch (IOException ex) {
         ex.printStackTrace();
       }
@@ -173,16 +198,6 @@ public class MessageHandler {
 
 
       if (accepted) {
-//        //Cho 2 người vào 1 phòng. Add vào danh sách phòng chung của server. Server sẽ quản lý danh sách đó
-//        //gửi trước tin nhắn đồng ý để test
-//        ClientHandler targetHandler = server.getClient(responseTo);
-//        Message forwardMessage = new Message(MessageType.CHALLENGE_SUCCESS, this.clientHandler.getUser().getUsername() + " đã chấp nhận lời thách đấu");
-//        try {
-//          targetHandler.sendMessage(forwardMessage);
-//        } catch (IOException e) {
-//          System.out.println("Failed to send challenge to: " + responseTo);
-//          e.printStackTrace();
- //       }
         GameRoomHandler newRoom = new GameRoomHandler(challengeHandler, acceptorHandler, server);
         acceptorHandler.setCurrentRoom(newRoom);
         challengeHandler.setCurrentRoom(newRoom);
@@ -203,7 +218,6 @@ public class MessageHandler {
 
 
       } else {
-        // gửi tin nhắn từ chối cho người thách đấu
         String reason = "";
         ClientHandler targetHandler = server.getClient(responseTo);
         reason +=  this.clientHandler.getUser().getUsername() + " đã từ chối lời thách đấu!";
