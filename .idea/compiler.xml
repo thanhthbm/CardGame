@@ -8,7 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="CardGame" />
         <module name="server" />
+        <module name="client" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="22" />
+    </bytecodeTargetLevel>
   </component>
 </project>
