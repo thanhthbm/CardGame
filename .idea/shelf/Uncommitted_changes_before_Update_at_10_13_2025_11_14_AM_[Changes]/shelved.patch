@@ -1,0 +1,282 @@
+Index: server/src/dao/DAO.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package dao;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.SQLException;\r\n\r\npublic class DAO {\r\n  protected Connection connection;\r\n\r\n  private static final String URL = \"jdbc:mysql://localhost:3306/cardgame\";\r\n  private static final String USER = \"root\";\r\n  private static final String PASS = \"200320045\";\r\n\r\n\r\n  public DAO() {\r\n    this.connection = getConnection();\r\n  }\r\n\r\n  private Connection getConnection() {\r\n    try {\r\n      return DriverManager.getConnection(URL, USER, PASS);\r\n    } catch (SQLException e) {\r\n      throw new RuntimeException(e);\r\n    }\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/src/dao/DAO.java b/server/src/dao/DAO.java
+--- a/server/src/dao/DAO.java	(revision 2b5278f8e4aedfa0c34e532e02ad736b3dca229d)
++++ b/server/src/dao/DAO.java	(date 1760246864127)
+@@ -8,8 +8,8 @@
+   protected Connection connection;
+ 
+   private static final String URL = "jdbc:mysql://localhost:3306/cardgame";
+-  private static final String USER = "root";
+-  private static final String PASS = "200320045";
++  private static final String USER = "trong";
++  private static final String PASS = "Trong2004@";
+ 
+ 
+   public DAO() {
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"server\" />\r\n        <module name=\"client\" />\r\n        <module name=\"common\" />\r\n        <module name=\"CardGame\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n    <bytecodeTargetLevel>\r\n      <module name=\"shared\" target=\"24\" />\r\n    </bytecodeTargetLevel>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision 2b5278f8e4aedfa0c34e532e02ad736b3dca229d)
++++ b/.idea/compiler.xml	(date 1760244640517)
+@@ -9,7 +9,6 @@
+         <module name="server" />
+         <module name="client" />
+         <module name="common" />
+-        <module name="CardGame" />
+       </profile>
+     </annotationProcessing>
+     <bytecodeTargetLevel>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c89a7ea1-9151-458f-9329-db504bfd5a57\" name=\"Changes\" comment=\"fetch online list feature\">\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/GameView.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/GameView.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Back.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=10.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=2.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=3.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=4.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=5.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=6.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=7.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=8.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=9.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=Ace.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=Jack.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=King.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=Queen.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=10.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=2.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=3.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=4.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=5.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=6.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=7.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=8.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=9.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=Ace.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=Jack.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=King.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=Queen.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=10.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=2.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=3.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=4.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=5.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=6.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=7.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=8.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=9.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=Ace.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=Jack.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=King.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=Queen.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=10.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=2.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=3.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=4.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=5.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=6.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=7.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=8.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=9.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=Ace.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=Jack.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=King.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=Queen.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/game.jpg\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/common/common.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/common/src/main/java/constant/Rank.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/common/src/main/java/constant/Suit.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/common/src/main/java/model/CardUpdateInfo.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/common/src/main/java/model/ChallengeResponse.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/common/src/main/java/model/GameResult.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/common/src/main/java/model/GameStartInfo.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/server/src/GameRoomHandler.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/compiler.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/compiler.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/client/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/client/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/AppContext.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/AppContext.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/common/src/main/java/model/Card.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/common/src/main/java/model/Card.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/common/src/main/java/model/Message.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/common/src/main/java/model/Message.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/common/src/main/java/model/User.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/common/src/main/java/model/User.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/src/ClientHandler.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/src/ClientHandler.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/src/MessageHandler.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/src/MessageHandler.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/src/ServerMain.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/src/ServerMain.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;thanhthbm&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/thanhthbm/CardGame.git&quot;,\r\n    &quot;accountId&quot;: &quot;bce26532-642c-4a00-906e-b78721c4b82e&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"33BYSBhgEzso07uSxvaiG39X6gB\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;Application.App (1).executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.App.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.ClientMain.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.ServerMain.executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven.CardGame [clean].executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven.CardGame [compile].executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven.CardGame [package].executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven.cardgame-parent [clean].executor&quot;: &quot;Run&quot;,\r\n    &quot;Maven.cardgame-parent [package].executor&quot;: &quot;Run&quot;,\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Thanh/Downloads/Compressed/CardGame/client/src/main/resources/com/thanhthbm/cardgame/images&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Thanh/Downloads/Compressed/restaurant/CardGame/CardGameProject/server/src/Main.java&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Thanh\\Downloads\\Compressed\\CardGame\\client\\src\\main\\resources\\com\\thanhthbm\\cardgame\\images\" />\r\n      <recent name=\"C:\\Users\\Thanh\\Downloads\\Compressed\\CardGame\\client\\src\\main\\resources\\com\\thanhthbm\\cardgame\\images\\card\" />\r\n      <recent name=\"C:\\Users\\Thanh\\Downloads\\Compressed\\restaurant\\CardGame\\CardGameProject\\client\\src\\main\\resources\\com\\thanhthbm\\cardgame\\images\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Thanh\\Downloads\\Compressed\\CardGame\\client\\src\\main\\resources\\com\\thanhthbm\\cardgame\\images\" />\r\n      <recent name=\"C:\\Users\\Thanh\\Downloads\\Compressed\\restaurant\\CardGame\\CardGameProject\\client\\src\\main\\java\\com\\thanhthbm\\cardgame\\controller\" />\r\n      <recent name=\"C:\\Users\\Thanh\\Downloads\\Compressed\\restaurant\\CardGame\\CardGameProject\\client\\src\\main\\resources\\com\\thanhthbm\\cardgame\\fxml\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"com.thanhthbm.cardgame.model\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"App (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.thanhthbm.cardgame.App\" />\r\n      <module name=\"client\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.thanhthbm.cardgame.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.thanhthbm.cardgame.App\" />\r\n      <module name=\"client\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.thanhthbm.cardgame.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" singleton=\"false\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.thanhthbm.Main\" />\r\n      <module name=\"CardGame\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.thanhthbm.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ServerMain\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ServerMain\" />\r\n      <module name=\"server\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.Main\" />\r\n      <item itemvalue=\"Application.App\" />\r\n      <item itemvalue=\"Application.App (1)\" />\r\n      <item itemvalue=\"Application.ServerMain\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.ServerMain\" />\r\n        <item itemvalue=\"Application.App\" />\r\n        <item itemvalue=\"Application.App (1)\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c89a7ea1-9151-458f-9329-db504bfd5a57\" name=\"Changes\" comment=\"\" />\r\n      <created>1758791930410</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1758791930410</updated>\r\n      <workItem from=\"1758791931728\" duration=\"3049000\" />\r\n      <workItem from=\"1758809067167\" duration=\"3729000\" />\r\n      <workItem from=\"1758812875571\" duration=\"5233000\" />\r\n      <workItem from=\"1758854909479\" duration=\"4856000\" />\r\n      <workItem from=\"1758875553139\" duration=\"7699000\" />\r\n      <workItem from=\"1759974953052\" duration=\"438000\" />\r\n      <workItem from=\"1759975405049\" duration=\"6777000\" />\r\n      <workItem from=\"1759982246513\" duration=\"2031000\" />\r\n      <workItem from=\"1760022197149\" duration=\"6692000\" />\r\n      <workItem from=\"1760073081057\" duration=\"4672000\" />\r\n      <workItem from=\"1760085365837\" duration=\"1408000\" />\r\n      <workItem from=\"1760086818379\" duration=\"10833000\" />\r\n      <workItem from=\"1760105804147\" duration=\"4475000\" />\r\n      <workItem from=\"1760189148550\" duration=\"4302000\" />\r\n      <workItem from=\"1760193594287\" duration=\"3199000\" />\r\n      <workItem from=\"1760196889759\" duration=\"409000\" />\r\n      <workItem from=\"1760197382595\" duration=\"5572000\" />\r\n      <workItem from=\"1760236929525\" duration=\"4974000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"refactor\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1758792041356</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1758792041356</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"refactor\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1758883401609</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1758883401609</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"fix\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760023913583</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760023913583</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"register feature\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760026117421</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760026117421</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"fetch online list feature\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760103844429</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760103844429</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"refactor\" />\r\n    <MESSAGE value=\"fix\" />\r\n    <MESSAGE value=\"register feature\" />\r\n    <MESSAGE value=\"fetch online list feature\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"fetch online list feature\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2b5278f8e4aedfa0c34e532e02ad736b3dca229d)
++++ b/.idea/workspace.xml	(date 1760246905848)
+@@ -5,84 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="fetch online list feature">
+-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/GameView.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/GameView.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Back.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=10.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=2.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=3.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=4.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=5.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=6.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=7.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=8.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=9.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=Ace.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=Jack.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=King.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Clubs, Number=Queen.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=10.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=2.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=3.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=4.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=5.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=6.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=7.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=8.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=9.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=Ace.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=Jack.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=King.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Diamonds, Number=Queen.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=10.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=2.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=3.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=4.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=5.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=6.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=7.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=8.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=9.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=Ace.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=Jack.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=King.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Hearts, Number=Queen.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=10.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=2.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=3.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=4.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=5.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=6.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=7.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=8.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=9.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=Ace.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=Jack.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=King.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/card/Suit=Spades, Number=Queen.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/game.jpg" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/common/src/main/java/constant/Rank.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/common/src/main/java/constant/Suit.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/common/src/main/java/model/CardUpdateInfo.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/common/src/main/java/model/ChallengeResponse.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/common/src/main/java/model/GameResult.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/common/src/main/java/model/GameStartInfo.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/server/src/GameRoomHandler.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/AppContext.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/Card.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/Message.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/User.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/server/src/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ClientHandler.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/server/src/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/MessageHandler.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/server/src/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ServerMain.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/server/src/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/DAO.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -107,12 +33,12 @@
+     &quot;assignee&quot;: &quot;thanhthbm&quot;
+   }
+ }</component>
+-  <component name="GithubPullRequestsUISettings">{
+-  &quot;selectedUrlAndAccountId&quot;: {
+-    &quot;url&quot;: &quot;https://github.com/thanhthbm/CardGame.git&quot;,
+-    &quot;accountId&quot;: &quot;bce26532-642c-4a00-906e-b78721c4b82e&quot;
+-  }
+-}</component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/thanhthbm/CardGame.git",
++    "accountId": "a5bf0a8f-6b01-43ef-8540-0de14fc05ac2"
++  }
++}]]></component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 4
+ }</component>
+@@ -123,38 +49,39 @@
+   <component name="ProjectViewState">
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;Application.App (1).executor&quot;: &quot;Run&quot;,
+-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.ClientMain.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.ServerMain.executor&quot;: &quot;Run&quot;,
+-    &quot;Maven.CardGame [clean].executor&quot;: &quot;Run&quot;,
+-    &quot;Maven.CardGame [compile].executor&quot;: &quot;Run&quot;,
+-    &quot;Maven.CardGame [package].executor&quot;: &quot;Run&quot;,
+-    &quot;Maven.cardgame-parent [clean].executor&quot;: &quot;Run&quot;,
+-    &quot;Maven.cardgame-parent [package].executor&quot;: &quot;Run&quot;,
+-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Thanh/Downloads/Compressed/CardGame/client/src/main/resources/com/thanhthbm/cardgame/images&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Thanh/Downloads/Compressed/restaurant/CardGame/CardGameProject/server/src/Main.java&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "Application.App (1).executor": "Run",
++    "Application.App.executor": "Run",
++    "Application.ClientMain.executor": "Run",
++    "Application.Main.executor": "Run",
++    "Application.ServerMain.executor": "Run",
++    "Maven.CardGame [clean].executor": "Run",
++    "Maven.CardGame [compile].executor": "Run",
++    "Maven.CardGame [package].executor": "Run",
++    "Maven.cardgame-parent [clean].executor": "Run",
++    "Maven.cardgame-parent [package].executor": "Run",
++    "ModuleVcsDetector.initialDetectionPerformed": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "git-widget-placeholder": "master",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "E:/LTM/CardGame",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "onboarding.tips.debug.path": "C:/Users/Thanh/Downloads/Compressed/restaurant/CardGame/CardGameProject/server/src/Main.java",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\Thanh\Downloads\Compressed\CardGame\client\src\main\resources\com\thanhthbm\cardgame\images" />
+@@ -202,7 +129,7 @@
+     </configuration>
+     <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="com.thanhthbm.Main" />
+-      <module name="CardGame" />
++      <module name="client" />
+       <extension name="coverage">
+         <pattern>
+           <option name="PATTERN" value="com.thanhthbm.*" />
+@@ -238,11 +165,12 @@
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
++        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
++        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+       </set>
+     </attachedChunks>
+   </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+       <changelist id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="" />
+@@ -268,6 +196,7 @@
+       <workItem from="1760196889759" duration="409000" />
+       <workItem from="1760197382595" duration="5572000" />
+       <workItem from="1760236929525" duration="4974000" />
++      <workItem from="1760244578382" duration="1088000" />
+     </task>
+     <task id="LOCAL-00001" summary="refactor">
+       <option name="closed" value="true" />
+Index: server/server.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"AdditionalModuleElements\">\r\n    <content url=\"file://$MODULE_DIR$\" dumb=\"true\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\r\n    </content>\r\n  </component>\r\n  <component name=\"CheckStyle-IDEA-Module\" serialisationVersion=\"2\">\r\n    <option name=\"activeLocationsIds\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/server.iml b/server/server.iml
+--- a/server/server.iml	(revision 2b5278f8e4aedfa0c34e532e02ad736b3dca229d)
++++ b/server/server.iml	(date 1760244640488)
+@@ -1,11 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
++<module version="4">
+   <component name="AdditionalModuleElements">
+     <content url="file://$MODULE_DIR$" dumb="true">
+       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+     </content>
+   </component>
+-  <component name="CheckStyle-IDEA-Module" serialisationVersion="2">
+-    <option name="activeLocationsIds" />
+-  </component>
+ </module>
+\ No newline at end of file

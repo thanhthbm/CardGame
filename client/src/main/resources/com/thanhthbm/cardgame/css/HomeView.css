@@ -68,3 +68,7 @@ Button:hover{
 #leaderboardList .list-cell {
   -fx-background-color: transparent;
 }
+
+#logoutButton{
+  -fx-font-size: 40;
+}

@@ -3,16 +3,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="mainPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thanhthbm.cardgame.controller.HomeView">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thanhthbm.cardgame.controller.HomeController">
    <children>
-      <Button fx:id="playButton" layoutX="851.0" layoutY="344.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="338.0" text="Chơi ngay" />
-      <Button fx:id="infoButton" layoutX="851.0" layoutY="489.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="346.0" text="Thông tin tài khoản" />
-      <Pane layoutX="14.0" layoutY="188.0" prefHeight="96.0" prefWidth="329.0" fx:id="leaderboardPane">
+      <Button fx:id="playButton" layoutX="849.0" layoutY="344.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="338.0" text="Chơi ngay" onAction="#onPlay" />
+      <Button fx:id="infoButton" layoutX="847.0" layoutY="479.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="346.0" text="Thông tin tài khoản" />
+      <Pane fx:id="leaderboardPane" layoutX="14.0" layoutY="188.0" prefHeight="96.0" prefWidth="329.0">
          <children>
             <Label fx:id="leaderboardLabel" layoutX="2.0" prefHeight="96.0" prefWidth="329.0" text="BẢNG XẾP HẠNG" />
          </children>
       </Pane>
       <Pane fx:id="logoPane" layoutX="14.0" layoutY="14.0" prefHeight="180.0" prefWidth="236.0" />
-      <ListView layoutX="14.0" layoutY="299.0" prefHeight="408.0" prefWidth="329.0" fx:id="leaderboardList"/>
+      <ListView fx:id="leaderboardList" layoutX="14.0" layoutY="299.0" prefHeight="408.0" prefWidth="329.0" />
+      <Button fx:id="logoutButton" layoutX="849.0" layoutY="611.0" mnemonicParsing="false" onAction="#onLogout" prefHeight="96.0" prefWidth="346.0" text="Đăng xuất" />
    </children>
 </AnchorPane>

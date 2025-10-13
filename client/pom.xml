@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.thanhthbm</groupId>
-    <artifactId>CardGame</artifactId>
+    <artifactId>client</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>CardGame</name>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -111,6 +111,11 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.thanhthbm</groupId>
+            <artifactId>common</artifactId>
+            <version>0.1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -133,7 +138,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.thanhthbm.cardgame/com.thanhthbm.cardgame.view.HelloApplication</mainClass>
+                            <mainClass>com.thanhthbm.cardgame.ClientApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
