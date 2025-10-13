@@ -18,6 +18,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -136,6 +137,28 @@ public class GameController implements ClientListener {
             showResultDialog((GameResult) message.getPayload());
           }
           break;
+        case GAME_FORFEIT:
+          countdownTimeline.stop();
+          timerBox.setVisible(false);
+          isMyTurn = false;
+
+          if (message.getPayload() instanceof String) {
+            String reason = (String) message.getPayload();
+            Alert forfeitAlert = new Alert(Alert.AlertType.INFORMATION);
+            forfeitAlert.setTitle("Bạn đã thắng");
+            forfeitAlert.setHeaderText(null);
+            forfeitAlert.setContentText(reason);
+            forfeitAlert.initOwner(gamePane.getScene().getWindow());
+            forfeitAlert.getDialogPane().lookup(".content.label").setStyle("-fx-text-fill: black;");
+
+            forfeitAlert.showAndWait().ifPresent(response -> {
+              LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
+              if (lobbyController != null) {
+                lobbyController.refresh();
+              }
+            });
+          }
+          break;
       }
     });
   }
@@ -220,11 +243,21 @@ public class GameController implements ClientListener {
   @FXML
   private void onExitGame(ActionEvent event) {
     System.out.println("Exit game requested.");
-    LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
+    Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+    confirmAlert.setTitle("Xác nhận Thoát");
+    confirmAlert.setHeaderText("Bạn có chắc chắn muốn thoát khỏi trận đấu?");
+    confirmAlert.setContentText("Bạn sẽ bị xử thua nếu thoát ngay bây giờ.");
+    confirmAlert.initOwner(gamePane.getScene().getWindow());
 
+    confirmAlert.showAndWait().ifPresent(response -> {
+      if (response == ButtonType.OK) {
+        client.sendMessage(new Message(MessageType.EXIT_GAME, AppContext.getInstance().getCurrentUser().getUsername()));
 
-    if (lobbyController != null) {
-      lobbyController.refresh();
-    }
+        LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
+        if (lobbyController != null) {
+          lobbyController.refresh();
+        }
+      }
+    });
   }
 }

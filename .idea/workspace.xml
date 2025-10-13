@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="handle gameplay">
-      <change afterPath="$PROJECT_DIR$/server/src/ServerApplication.java" afterDir="false" />
+    <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/context/AppContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/GameRoomHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/GameRoomHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/MessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controller/GameRoomHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/GameRoomHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +205,7 @@
       <workItem from="1760196889759" duration="409000" />
       <workItem from="1760197382595" duration="5572000" />
       <workItem from="1760236929525" duration="9817000" />
-      <workItem from="1760319062568" duration="4273000" />
+      <workItem from="1760319062568" duration="6357000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />
@@ -271,18 +255,26 @@
       <option name="project" value="LOCAL" />
       <updated>1760242053554</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1760323431563</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760323431563</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor" />
     <MESSAGE value="fix" />
     <MESSAGE value="register feature" />
     <MESSAGE value="fetch online list feature" />
     <MESSAGE value="handle gameplay" />
-    <option name="LAST_COMMIT_MESSAGE" value="handle gameplay" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
 </project>
