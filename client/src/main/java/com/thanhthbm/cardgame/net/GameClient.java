@@ -20,7 +20,7 @@ public class GameClient {
     return instance;
   }
 
-  private final String host = "26.150.208.229";
+  private final String host = "localhost";
   private final int port = 5555;
   private Socket socket;
   private ObjectInputStream in;
