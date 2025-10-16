@@ -23,10 +23,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
@@ -39,7 +36,7 @@ import model.User.PlayerStatus;
 
 public class LobbyController implements ClientListener {
   @FXML
-  public VBox lobbyPane;
+  public AnchorPane lobbyPane;
   @FXML
   private ListView<User> playersListView;
   private GameClient client;
@@ -139,7 +136,10 @@ public class LobbyController implements ClientListener {
 
     public PlayerListCell() {
       super();
-
+      avatar.setFitWidth(40);
+      avatar.setFitHeight(40);
+      avatar.setPreserveRatio(true);
+      avatar.setClip(new Circle(20, 20, 20));
       hBox.setAlignment(Pos.CENTER_LEFT);
       HBox.setHgrow(spacer, Priority.ALWAYS);
 

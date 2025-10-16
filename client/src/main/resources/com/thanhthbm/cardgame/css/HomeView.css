@@ -1,74 +1,84 @@
-.root{
-  -fx-font-family: "Lucida Console";
+.root {
+  -fx-font-family: "Playfair Display";
 }
 
-#mainPane{
+#homePane {
   -fx-background-image: url("../images/login.jpg");
   -fx-background-size: cover;
+  -fx-background-position: center;
 }
 
-Button{
+Button {
+  -fx-background-color: linear-gradient(to bottom right, #ffffffcc, #eeeeee88);
   -fx-background-radius: 20;
+  -fx-border-radius: 20;
+  -fx-border-color: white;
+  -fx-border-width: 2;
   -fx-text-fill: black;
-  -fx-background-color: white;
-
+  -fx-font-weight: bold;
+  -fx-effect: dropshadow(three-pass-box, rgba(255,255,255,0.3), 6, 0, 0, 0);
+  -fx-transition: all 0.3s;
 }
 
-Button:hover{
+Button:hover {
+  -fx-background-color: linear-gradient(to bottom right, #ffe680, #ffcc00);
   -fx-cursor: hand;
+  -fx-text-fill: black;
+  -fx-scale-x: 1.05;
+  -fx-scale-y: 1.05;
 }
 
-#playButton{
-  -fx-font-size: 40;
+#playButton {
+  -fx-font-size: 34;
+  -fx-text-fill: #1a1a1a;
 }
 
-#infoButton{
-  -fx-font-size: 20;
+#infoButton, #historyButton, #logoutButton {
+  -fx-font-size: 22;
 }
 
-#logoPane{
+#logoutButton {
+  -fx-background-color: linear-gradient(to bottom right, #ff9999, #ff5555);
+  -fx-text-fill: white;
+  -fx-border-color: transparent;
+}
+
+#logoutButton:hover {
+  -fx-background-color: linear-gradient(to bottom right, #ff7777, #ff3333);
+}
+
+#logoPane {
   -fx-background-image: url("../images/logo.png");
   -fx-background-repeat: no-repeat;
   -fx-background-size: contain;
   -fx-background-position: center;
   -fx-background-color: transparent;
-
-}
-
-#leaderboardLabel{
-  -fx-font-size: 38;
-  -fx-font-weight: bold;
-  -fx-alignment: center;
-  -fx-text-fill: white;
-  -fx-background-radius: 20;
 }
 
 #leaderboardPane {
-  -fx-background-color: #ffffff88; /* nền đen mờ */
+  -fx-background-color: rgba(0, 0, 0, 0.6);
   -fx-background-radius: 16;
   -fx-border-radius: 16;
   -fx-border-color: white;
-  -fx-border-width: 1;
+  -fx-border-width: 2;
 }
 
-#leaderboardList{
-  -fx-background-color: rgba(255, 255, 255, 0.5);
+#leaderboardLabel {
+  -fx-font-size: 32;
+  -fx-font-weight: bold;
+  -fx-alignment: center;
+  -fx-text-fill: #ffcc00;
+  -fx-background-radius: 20;
+}
+
+#leaderboardList {
+  -fx-background-color: rgba(255, 255, 255, 0.25);
   -fx-background-radius: 16;
   -fx-padding: 10;
 }
 
-#leaderboardList .viewport {
-  -fx-background-color: rgba(255, 255, 255, 0.25);
-}
-
-#leaderboardList .scroll-pane {
-  -fx-background-color: transparent;
-}
-
 #leaderboardList .list-cell {
   -fx-background-color: transparent;
-}
-
-#logoutButton{
-  -fx-font-size: 40;
+  -fx-text-fill: white;
+  -fx-font-size: 18;
 }

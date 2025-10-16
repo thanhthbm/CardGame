@@ -54,10 +54,10 @@ public class LoginController implements ClientListener {
 
       if (message.getType() == MessageType.LOGIN_SUCCESS) {
         AppContext.getInstance().setCurrentUser((User) message.getPayload());
-        goToLobbyScene();
+        SceneManager.switchScene(Screen.HOME);
       } else if (message.getType() == MessageType.LOGIN_FAILED) {
         loginButton.setDisable(false);
-        showAlertDialog(AlertType.ERROR, "Đăng nhập thất bại", "Sai tên đăng nhập hoặc mật khẩu.");
+        showAlertDialog(AlertType.ERROR, "Đăng nhập thất bại", (String) message.getPayload());
       }
     });
   }

@@ -1,27 +1,67 @@
-
-
-.player-list-view {
-  -fx-background-color: rgba(100, 100, 100, 0.7); /* Màu xám, độ mờ 70% */
-  -fx-background-radius: 10;
-}
-
-/* Tùy chỉnh mỗi hàng trong danh sách */
-.player-list-view .list-cell {
-  -fx-background-color: #E0E0E0; /* Màu nền xám nhạt cho mỗi hàng */
-  -fx-padding: 10px;
-  -fx-background-radius: 8;
-  -fx-border-radius: 8;
-  -fx-margin: 5px 0; /* Chỉ hoạt động với một số layout */
-}
-
-/* Loại bỏ màu nền mặc định khi hover hoặc selected */
-.player-list-view .list-cell:filled:hover,
-.player-list-view .list-cell:filled:selected {
-  -fx-background-color: #C5C5C5; /* Màu nền hơi đậm hơn khi di chuột qua */
-}
-
-#lobbyPane{
+#lobbyPane {
   -fx-background-image: url('../images/login.jpg');
   -fx-background-size: cover;
-  -fx-alignment: center;
+  -fx-background-position: center;
+}
+
+/* Bảng danh sách người chơi */
+.player-list-view {
+  -fx-background-color: rgba(60, 60, 60, 0.7);
+  -fx-background-radius: 15;
+  -fx-padding: 25;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 15, 0, 0, 3);
+  -fx-border-color: rgba(255,255,255,0.2);
+  -fx-border-radius: 15;
+}
+
+/* Mỗi ô người chơi */
+.player-list-view .list-cell {
+  -fx-background-color: #F2F2F2;
+  -fx-background-radius: 12;
+  -fx-padding: 12 20;
+  -fx-alignment: CENTER_LEFT;
+  -fx-font-family: "Segoe UI Semibold";
+  -fx-font-size: 16px;
+  -fx-text-fill: #1e1e1e;
+  -fx-min-height: 70px; /* Giữ chiều cao đều */
+  -fx-pref-height: 70px;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0, 0, 2);
+}
+
+/* Hiệu ứng hover */
+.player-list-view .list-cell:filled:hover {
+  -fx-background-color: #E0E0E0;
+  -fx-cursor: hand;
+}
+
+/* Căn giữa và tạo khoảng cách cho các phần tử bên trong mỗi cell */
+.player-list-view .list-cell > * {
+  -fx-alignment: CENTER_LEFT;
+}
+
+/* Nút "Thách đấu" */
+.button {
+  -fx-background-color: linear-gradient(to bottom, #f5f5f5, #dcdcdc);
+  -fx-text-fill: #333;
+  -fx-font-weight: bold;
+  -fx-font-size: 14px;
+  -fx-background-radius: 20;
+  -fx-padding: 6 20;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 3, 0, 0, 1);
+}
+
+.button:hover {
+  -fx-background-color: linear-gradient(to bottom, #ffffff, #cccccc);
+}
+
+/* Đèn trạng thái ON */
+.status-indicator {
+  -fx-fill: #3CCF4E;
+  -fx-stroke: #2E7D32;
+}
+
+/* Avatar */
+.avatar {
+  -fx-background-radius: 50%;
+  -fx-border-radius: 50%;
 }

@@ -1,20 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="registerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thanhthbm.cardgame.controller.RegisterController">
+<AnchorPane fx:id="registerPane" prefHeight="720.0" prefWidth="1280.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.thanhthbm.cardgame.controller.RegisterController">
+
   <children>
-    <Label fx:id="registerLabel" layoutX="459.0" layoutY="115.0" prefHeight="54.0" prefWidth="313.0" text="Đăng ký" />
-    <TextField fx:id="usernameField" layoutX="459.0" layoutY="252.0" prefHeight="42.0" prefWidth="313.0" />
-    <PasswordField fx:id="passwordField" layoutX="457.0" layoutY="339.0" prefHeight="42.0" prefWidth="313.0" />
-    <Label fx:id="usernameLabel" layoutX="458.0" layoutY="210.0" prefHeight="28.0" prefWidth="313.0" text="Tên tài khoản" />
-    <Label fx:id="passwordLabel" layoutX="458.0" layoutY="303.0" prefHeight="28.0" prefWidth="313.0" text="Mật khẩu" />
-    <Button fx:id="registerButton" layoutX="489.0" layoutY="484.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="42.0" prefWidth="250.0" text="Đăng ký" />
-    <HBox layoutX="459.0" layoutY="387.0" prefHeight="36.0" prefWidth="313.0">
+
+    <VBox alignment="CENTER" spacing="15"
+          layoutX="390" layoutY="160"
+          prefWidth="500" prefHeight="400"
+          style="-fx-background-color: rgba(0,0,0,0.55); -fx-background-radius: 20; -fx-padding: 40;">
+
       <children>
-        <Label fx:id="switchLoginLabel" prefHeight="28.0" prefWidth="190.0" text="Bạn đã có tài khoản?" />
-        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#goToLoginScene" text="Đăng nhập" />
-      </children></HBox>
+        <Label fx:id="registerLabel" text="Đăng ký" />
+
+        <VBox spacing="10" alignment="CENTER">
+          <children>
+            <Label fx:id="usernameLabel" text="Tên tài khoản" />
+            <TextField fx:id="usernameField" promptText="Nhập tên tài khoản..." />
+          </children>
+        </VBox>
+
+        <VBox spacing="10" alignment="CENTER">
+          <children>
+            <Label fx:id="passwordLabel" text="Mật khẩu" />
+            <PasswordField fx:id="passwordField" promptText="Nhập mật khẩu..." />
+          </children>
+        </VBox>
+
+        <Label fx:id="statusLabel" textFill="red" text="" />
+
+        <Button fx:id="registerButton" text="Đăng ký" onAction="#onRegister" />
+
+        <HBox alignment="CENTER" spacing="5">
+          <children>
+            <Label fx:id="switchLoginLabel" text="Bạn đã có tài khoản?" />
+            <Button fx:id="loginButton" text="Đăng nhập" onAction="#goToLoginScene" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
   </children>
 </AnchorPane>

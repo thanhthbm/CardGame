@@ -4,12 +4,20 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="gamePane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thanhthbm.cardgame.controller.GameController">
+<AnchorPane fx:id="gamePane" prefHeight="720.0" prefWidth="1280.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.thanhthbm.cardgame.controller.GameController">
 
   <children>
-    <Button fx:id="exitButton" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#onExitGame" text="Thoát" />
 
-    <HBox fx:id="cardsContainer" alignment="CENTER" layoutX="100.0" layoutY="285.0" prefHeight="150.0" prefWidth="1000.0" spacing="10.0">
+    <Button fx:id="exitButton" layoutX="25.0" layoutY="25.0"
+            mnemonicParsing="false" onAction="#onExitGame"
+            text="Thoát" />
+
+    <HBox fx:id="cardsContainer" alignment="CENTER"
+          layoutX="100.0" layoutY="300.0"
+          prefHeight="150.0" prefWidth="1080.0" spacing="12.0">
       <children>
         <ImageView fx:id="card0" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#handleCardClick" styleClass="card-back" />
         <ImageView fx:id="card1" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#handleCardClick" styleClass="card-back" />
@@ -24,32 +32,33 @@
       </children>
     </HBox>
 
-    <HBox alignment="CENTER" layoutX="250.0" layoutY="550.0" spacing="550.0">
+    <HBox alignment="CENTER" layoutX="250.0" layoutY="570.0" spacing="550.0">
       <children>
-        <VBox alignment="CENTER" spacing="10.0">
+        <VBox alignment="CENTER" spacing="8.0">
           <children>
             <ImageView fitHeight="80.0" fitWidth="80.0" styleClass="avatar-image" />
-            <Label fx:id="player1NameLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="VMT Thành" textFill="WHITE" />
+            <Label fx:id="player1NameLabel" styleClass="label-player-name" text="VMT Thành" />
           </children>
         </VBox>
 
-        <VBox alignment="CENTER" spacing="10.0">
+        <VBox alignment="CENTER" spacing="8.0">
           <children>
             <ImageView fitHeight="80.0" fitWidth="80.0" styleClass="avatar-image" />
-            <Label fx:id="player2NameLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Nguyễn Xuân Việt" textFill="WHITE" />
+            <Label fx:id="player2NameLabel" styleClass="label-player-name" text="Nguyễn Xuân Việt" />
           </children>
         </VBox>
       </children>
     </HBox>
 
-    <VBox alignment="CENTER" layoutX="540.0" layoutY="180.0" spacing="10.0">
+    <VBox alignment="CENTER" layoutX="540.0" layoutY="160.0" spacing="10.0">
       <children>
-        <Label fx:id="statusLabel" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: black;" text="Đang chờ đối thủ..." />
+        <Label fx:id="statusLabel" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: white;"
+               text="Đang chờ đối thủ..." />
 
         <VBox fx:id="timerBox" alignment="CENTER" spacing="5.0" visible="false">
           <children>
             <Label fx:id="timerLabel" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: yellow;" text="10" />
-            <ProgressBar fx:id="timerBar" prefWidth="200.0" progress="1.0" />
+            <ProgressBar fx:id="timerBar" prefWidth="220.0" progress="1.0" />
           </children>
         </VBox>
       </children>

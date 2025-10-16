@@ -3,8 +3,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="lobbyPane" maxHeight="-Infinity" alignment="CENTER" spacing="10" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thanhthbm.cardgame.controller.LobbyController">
+<AnchorPane fx:id="lobbyPane"
+            prefHeight="720.0" prefWidth="1280.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.thanhthbm.cardgame.controller.LobbyController"
+            stylesheets="@../css/LobbyView.css">
+
    <children>
-      <ListView fx:id="playersListView" maxHeight="900.0" maxWidth="600.0" styleClass="player-list-view" />
+      <!-- Container căn giữa danh sách -->
+      <VBox alignment="CENTER" spacing="20"
+            layoutX="0" layoutY="0"
+            prefWidth="1280" prefHeight="720">
+         <children>
+            <ListView fx:id="playersListView"
+                      maxWidth="700"
+                      prefHeight="500"
+                      styleClass="player-list-view"/>
+         </children>
+      </VBox>
    </children>
-</VBox>
+</AnchorPane>

@@ -1,20 +1,44 @@
-/* Quy tắc cho ID của AnchorPane gốc */
 #gamePane {
   -fx-background-image: url("../images/game.jpg");
   -fx-background-size: cover;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
+  -fx-background-color: black;
 }
 
-/* Quy tắc cho class của các lá bài úp */
 .card-back {
   -fx-image: url("../images/card/Back.png");
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 10, 0.5, 0, 2);
+  -fx-cursor: hand;
+  -fx-scale-x: 1.0;
+  -fx-scale-y: 1.0;
 }
-
-/* Quy tắc cho class của avatar */
+.card-back:hover {
+  -fx-scale-x: 1.05;
+  -fx-scale-y: 1.05;
+}
 .avatar-image {
   -fx-image: url("../images/avatar.png");
+  -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 8, 0.5, 0, 2);
+  -fx-background-radius: 50%;
+  -fx-border-radius: 50%;
 }
 
-/* (Ví dụ) Lật một lá bài bằng cách thêm một styleClass mới trong code Java */
-.card-face-queen-hearts {
-  -fx-image: url("../images/card/Suit=Clubs, Number=2.png");
+.label-player-name {
+  -fx-font-size: 18px;
+  -fx-font-weight: bold;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow(gaussian, black, 3, 0.3, 0, 0);
+}
+#exitButton {
+  -fx-background-color: rgba(255, 255, 255, 0.2);
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-background-radius: 8;
+  -fx-border-color: white;
+  -fx-border-radius: 8;
+  -fx-cursor: hand;
+}
+#exitButton:hover {
+  -fx-background-color: rgba(255, 255, 255, 0.4);
 }
