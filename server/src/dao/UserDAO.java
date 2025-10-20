@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.LeaderboardItem;
@@ -105,6 +106,39 @@ public class UserDAO extends DAO{
     }
   }
 
+  public boolean changePassword(String username, String newPassword){
+    String query = "update  users set password = ? where username = ?";
+    try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+      pstmt.setString(1, newPassword);
+      pstmt.setString(2, username);
+      pstmt.executeUpdate();
+      return true;
+
+    } catch (SQLException e){
+      e.printStackTrace();
+      System.out.println("Failed to change password");
+    }
+    return false;
+  }
+
+  public boolean isPasswordvalid(String username, String password){
+    String query = "Select * from users where username = ? and password = ?";
+
+    try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+      pstmt.setString(1, username);
+      pstmt.setString(2, password);
+      ResultSet rs = pstmt.executeQuery();
+      if (rs.next()) {
+        return true;
+      }
+
+    } catch (SQLException e){
+      System.out.println("Failed to check valid password");
+      e.printStackTrace();
+    }
+
+    return false;
+  }
 
 
 }
