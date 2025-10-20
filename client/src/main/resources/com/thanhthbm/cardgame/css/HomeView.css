@@ -33,7 +33,7 @@ Button:hover {
   -fx-text-fill: #1a1a1a;
 }
 
-#infoButton, #historyButton, #logoutButton {
+#infoButton, #historyButton, #logoutButton, #changePasswordButton {
   -fx-font-size: 22;
 }
 

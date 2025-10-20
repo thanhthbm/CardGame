@@ -28,8 +28,8 @@
 
       <Button fx:id="changePasswordButton" layoutX="850.0" layoutY="410.0"
               prefHeight="80.0" prefWidth="360.0"
-              onAction="#onChangePassword"
-              text="👤  Đổi mật khẩu" />
+              text="👤  Đổi mật khẩu"
+              onAction="#onChangePassword"/>
 
       <Button fx:id="historyButton" layoutX="850.0" layoutY="505.0"
               prefHeight="80.0" prefWidth="360.0"
