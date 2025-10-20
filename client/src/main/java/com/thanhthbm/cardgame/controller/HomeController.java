@@ -153,4 +153,9 @@ public class HomeController implements ClientListener {
   private void onPlay(ActionEvent event) {
     SceneManager.switchScene(Screen.LOBBY);
   }
+
+  @FXML
+  private void onChangePassword(ActionEvent event){
+    SceneManager.switchScene(Screen.CHANGE_PASSWORD);
+  }
 }

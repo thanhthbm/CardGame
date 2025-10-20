@@ -3,6 +3,7 @@ package controller;
 import dao.UserDAO;
 import java.util.List;
 import model.ChallengeResponse;
+import model.ChangePasswordDTO;
 import model.GameStartInfo;
 import model.LeaderboardItem;
 import model.Message;
@@ -48,9 +49,58 @@ public class MessageHandler {
       case CHALLENGE_RESPONSE:
         handleChallengeResponse(message);
         break;
+      case CHANGE_PASSWORD:
+        handleChangePassword(message);
       default:
         System.out.println("Unknown message type: " + message.getType());
     }
+  }
+
+  private void handleChangePassword(Message message) {
+    ChangePasswordDTO changePasswordDTO = (ChangePasswordDTO) message.getPayload();
+    String username = changePasswordDTO.getUsername();
+    String currentPassword = changePasswordDTO.getCurrentPassword();
+    String newPassword = changePasswordDTO.getNewPassword();
+    String rePassword = changePasswordDTO.getRePassword();
+
+    if (!userDAO.isPasswordvalid(username, currentPassword)) {
+      Message m = new Message(MessageType.CHANGE_PASSWORD_FAILED, "Mật khẩu hiện tại không đúng");
+      try {
+        this.clientHandler.sendMessage(m);
+      } catch (IOException e) {
+        System.out.println("Failed to send change password failed message");
+      }
+      return;
+    }
+
+    if (!newPassword.equals(rePassword)) {
+      Message m = new Message(MessageType.CHALLENGE_FAILED, "Mật khẩu mới và nhập lại mật khẩu mới không giống nhau");
+      try {
+        this.clientHandler.sendMessage(m);
+      } catch (IOException e) {
+        System.out.println("Failed to send change password failed message");
+      }
+      return;
+    }
+
+    boolean ok = this.userDAO.changePassword(username, newPassword);
+    if (!ok) {
+      Message m = new Message(MessageType.CHANGE_PASSWORD_FAILED, "Lỗi không xác định");
+      try {
+        this.clientHandler.sendMessage(m);
+      } catch (IOException e){
+        System.out.println("Failed to send change password failed message");
+      }
+      return;
+    }
+
+    Message m = new Message(MessageType.CHANGE_PASSWORD_SUCCESS, "Đổi mật khẩu thành công!");
+    try {
+      this.clientHandler.sendMessage(m);
+    } catch (IOException e){
+      System.out.println("Failed to send change password success message");
+    }
+
   }
 
   //gửi cho client danh sách các người chơi khác đang online (trừ chính mình)

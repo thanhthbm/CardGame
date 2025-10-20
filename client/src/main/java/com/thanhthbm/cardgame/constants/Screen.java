@@ -6,7 +6,8 @@ public enum Screen {
   REGISTER("RegisterView"),
   LOBBY("LobbyView"),
   GAME("GameView"),
-  HOME("HomeView");
+  HOME("HomeView"),
+  CHANGE_PASSWORD("ChangePasswordView");
 
   private final String baseName;
 

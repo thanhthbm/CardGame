@@ -12,6 +12,7 @@ import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
@@ -123,6 +124,10 @@ public class LobbyController implements ClientListener {
           break;
       }
     });
+  }
+
+  public void onBack(ActionEvent actionEvent) {
+    SceneManager.switchScene(Screen.HOME);
   }
 
   private class PlayerListCell extends ListCell<User> {

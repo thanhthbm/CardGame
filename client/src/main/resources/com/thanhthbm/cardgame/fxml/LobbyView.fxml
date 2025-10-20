@@ -3,24 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="lobbyPane"
-            prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.thanhthbm.cardgame.controller.LobbyController"
-            stylesheets="@../css/LobbyView.css">
+<AnchorPane fx:id="lobbyPane" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/LobbyView.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thanhthbm.cardgame.controller.LobbyController">
 
-   <children>
-      <!-- Container căn giữa danh sách -->
-      <VBox alignment="CENTER" spacing="20"
-            layoutX="0" layoutY="0"
-            prefWidth="1280" prefHeight="720">
-         <children>
-            <ListView fx:id="playersListView"
-                      maxWidth="700"
-                      prefHeight="500"
-                      styleClass="player-list-view"/>
-         </children>
-      </VBox>
-   </children>
+  <children>
+    <!-- Container căn giữa danh sách -->
+    <VBox alignment="CENTER" layoutX="7.0" prefHeight="720" prefWidth="1280" spacing="20">
+      <children>
+        <ListView fx:id="playersListView" maxWidth="700" prefHeight="500" styleClass="player-list-view" />
+        <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onBack" text="Quay lại" />
+      </children>
+    </VBox>
+  </children>
 </AnchorPane>
