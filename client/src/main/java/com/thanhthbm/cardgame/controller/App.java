@@ -3,6 +3,7 @@ import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.GameClient;
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -26,6 +27,7 @@ public class App extends Application {
 
     stage.setTitle("Card Game");
     stage.setResizable(false);
+    stage.getIcons().add(new Image("com/thanhthbm/cardgame/images/casino-chip.png"));
     stage.setWidth(1280);
     stage.setHeight(720);
     stage.show();

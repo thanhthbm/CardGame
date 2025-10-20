@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="update game UI">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/ChangePasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/ChangePasswordView.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/ChangePasswordView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/model/ChangePasswordDTO.java" afterDir="false" />
+    <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="add change password">
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/images/casino-chip.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controller/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/MessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +220,7 @@
       <workItem from="1760669311252" duration="8000" />
       <workItem from="1760950634931" duration="351000" />
       <workItem from="1760951498196" duration="260000" />
-      <workItem from="1760951792432" duration="4141000" />
+      <workItem from="1760951792432" duration="4863000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />
@@ -294,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760601953480</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add change password">
+      <option name="closed" value="true" />
+      <created>1760956117514</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1760956117514</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +307,7 @@
     <MESSAGE value="handle gameplay" />
     <MESSAGE value="refactor" />
     <MESSAGE value="update game UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="update game UI" />
+    <MESSAGE value="add change password" />
+    <option name="LAST_COMMIT_MESSAGE" value="add change password" />
   </component>
 </project>
