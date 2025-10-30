@@ -1,27 +1,28 @@
 package controller;
 
+import dao.HistoryDAO;
 import dao.UserDAO;
+
+import java.util.ArrayList;
 import java.util.List;
-import model.ChallengeResponse;
-import model.ChangePasswordDTO;
-import model.GameStartInfo;
-import model.LeaderboardItem;
-import model.Message;
+
+import model.*;
+
 import java.io.IOException;
 import model.Message.MessageType;
-import model.RegisterDTO;
-import model.User;
 
 
 public class MessageHandler {
   private final ClientHandler clientHandler;
   private final ServerMain server;
   private final UserDAO userDAO;
+  private final HistoryDAO historyDAO;
 
   public MessageHandler(ClientHandler clientHandler, ServerMain server) {
     this.clientHandler = clientHandler;
     this.server = server;
     this.userDAO = new UserDAO();
+    this.historyDAO = new HistoryDAO();
   }
 
   public void processMessage(Message message) throws IOException {
@@ -51,6 +52,10 @@ public class MessageHandler {
         break;
       case CHANGE_PASSWORD:
         handleChangePassword(message);
+        break;
+      case GET_HISTORY_LIST:
+         handleGetHistoryList(message);
+         break;
       default:
         System.out.println("Unknown message type: " + message.getType());
     }
@@ -282,5 +287,16 @@ public class MessageHandler {
     }
   }
 
+  private void handleGetHistoryList(Message message) {
+    System.out.println("Processing history list for: " + message.getPayload());
+    int userId = (int)message.getPayload();
+    ArrayList<History> listHistory = this.historyDAO.getHistory(userId);
+
+    try {
+        clientHandler.sendMessage(new Message(MessageType.RETURN_HISTORY_LIST, listHistory));
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+  }
 
 }

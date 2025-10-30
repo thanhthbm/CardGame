@@ -14,6 +14,7 @@ public class Message implements Serializable {
     PICK_CARD, TURN_UPDATE, CARD_PICKED_UPDATE,
     WINNER,
     CHANGE_PASSWORD, CHANGE_PASSWORD_SUCCESS, CHANGE_PASSWORD_FAILED,
+    GET_HISTORY_LIST, RETURN_HISTORY_LIST
   }
 
   private MessageType type;

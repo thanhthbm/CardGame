@@ -2,6 +2,7 @@ package controller;
 
 import constant.Rank;
 import constant.Suit;
+import dao.HistoryDAO;
 import dao.UserDAO;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,12 +11,9 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-import model.Card;
-import model.CardUpdateInfo;
-import model.GameResult;
-import model.Message;
+
+import model.*;
 import model.Message.MessageType;
-import model.User;
 import model.User.PlayerStatus;
 
 public class GameRoomHandler extends Thread {
@@ -24,6 +22,7 @@ public class GameRoomHandler extends Thread {
   private final ClientHandler player2;
   private volatile boolean isGameRunning = true; // Cờ để kiểm soát vòng lặp game an toàn
   private final UserDAO userDAO = new UserDAO();
+  private final HistoryDAO historyDAO = new HistoryDAO();
 
   private final BlockingQueue<Message> actionQueue;
   private List<Card> deck;
@@ -125,6 +124,19 @@ public class GameRoomHandler extends Thread {
     User loserUser = loser.getUser();
 
     System.out.println("GameRoom: " + winnerUser.getUsername() + " thắng do " + loserUser.getUsername() + " " + reason);
+
+    History h = new History();
+    h.setPlayer1(winnerUser);
+    h.setPlayer2(loserUser);
+    h.setScore1(1);
+    h.setScore2(0);
+
+    if(historyDAO.addHistory(h)){
+        System.out.println("Lưu lịch sử đấu thành công!");
+    } else {
+        System.out.println("Lưu lịch sử thất bại!");
+    }
+
 
     userDAO.addScore(winnerUser.getId(), 1);
     winnerUser.setScore(winnerUser.getScore() + 1);
