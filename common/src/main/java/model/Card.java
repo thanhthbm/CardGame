@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class Card implements Serializable, Comparable<Card> {
   private static final long serialVersionUID = 1L;
 
+
   private final Rank rank;
   private final Suit suit;
 

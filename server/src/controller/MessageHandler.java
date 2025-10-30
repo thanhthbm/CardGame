@@ -1,15 +1,17 @@
 package controller;
 
 import dao.UserDAO;
+import java.util.Collections;
 import java.util.List;
-import model.ChallengeResponse;
-import model.ChangePasswordDTO;
-import model.GameStartInfo;
-import model.LeaderboardItem;
-import model.Message;
+import java.util.regex.Pattern;
+import model.DTO.ChallengeResponse;
+import model.DTO.ChangePasswordDTO;
+import model.DTO.GameStartInfo;
+import model.DTO.LeaderboardItem;
+import model.DTO.Message;
 import java.io.IOException;
-import model.Message.MessageType;
-import model.RegisterDTO;
+import model.DTO.Message.MessageType;
+import model.DTO.RegisterDTO;
 import model.User;
 
 
@@ -185,6 +187,7 @@ public class MessageHandler {
   private void handleGetLeaderboard(Message message)  {
     System.out.println("Processing leaderboard for: " + message.getPayload());
     List<LeaderboardItem> leaderboard = this.userDAO.getLeaderboard();
+    Collections.sort(leaderboard, (o1, o2) -> o2.getScore() - o1.getScore());
 
     try {
       clientHandler.sendMessage(new Message(MessageType.LEADERBOARD, leaderboard));
@@ -205,14 +208,17 @@ public class MessageHandler {
   //gửi thông báo thách đấu cho người chơi B
   private void handleChallengeRequest(Message message) {
     if (message.getPayload() instanceof String) {
-      String targetUsername = (String) message.getPayload();
+      String payload =  (String) message.getPayload();
+      String[] part = payload.split(Pattern.quote("|"));
+      String deckType = part[1];
+      String targetUsername = part[0];
 
       String challengerUsername = clientHandler.getUser().getUsername();
 
       ClientHandler targetHandler = server.getClient(targetUsername);
 
       if (targetHandler != null) {
-        Message forwardMessage = new Message(MessageType.CHALLENGE_REQUEST, challengerUsername);
+        Message forwardMessage = new Message(MessageType.CHALLENGE_REQUEST, challengerUsername + "|" + deckType);
 
         try {
           targetHandler.sendMessage(forwardMessage);
@@ -238,6 +244,7 @@ public class MessageHandler {
     if (message.getPayload() instanceof ChallengeResponse) {
       ChallengeResponse challengeResponse = (ChallengeResponse) message.getPayload();
       boolean accepted =  challengeResponse.isAccepted();
+      String deckType = challengeResponse.getDeckType();
       String responseTo = challengeResponse.getResponseTo(); //Đây là username của người gửi lời thách đấu
       ClientHandler acceptorHandler = this.clientHandler;
       ClientHandler challengeHandler = server.getClient(responseTo);
@@ -251,6 +258,7 @@ public class MessageHandler {
         GameRoomHandler newRoom = new GameRoomHandler(challengeHandler, acceptorHandler, server);
         acceptorHandler.setCurrentRoom(newRoom);
         challengeHandler.setCurrentRoom(newRoom);
+        newRoom.setDeckType(deckType);
         newRoom.start();
         System.out.println("Game started");
 

@@ -7,7 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
-import model.LeaderboardItem;
+import model.DTO.LeaderboardItem;
 import com.thanhthbm.cardgame.net.ClientListener;
 import com.thanhthbm.cardgame.net.GameClient;
 import javafx.application.Platform;
@@ -25,23 +25,20 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
-import model.Message;
+import model.DTO.Message;
 
 import java.util.List;
 
 public class HomeController implements ClientListener {
   @FXML
   private AnchorPane homePane;
-
   @FXML
   private Button playButton;
-
-
   private GameClient client;
 
   @FXML
-  private ListView<model.LeaderboardItem> leaderboardList;
-  private final ObservableList<model.LeaderboardItem> items = FXCollections.observableArrayList();
+  private ListView<LeaderboardItem> leaderboardList;
+  private final ObservableList<LeaderboardItem> items = FXCollections.observableArrayList();
 
   @FXML
   public void initialize() {
@@ -76,7 +73,7 @@ public class HomeController implements ClientListener {
       switch (message.getType()) {
         case LEADERBOARD:
           if (message.getPayload() instanceof List) {
-            List<model.LeaderboardItem> leaderboardItems = (List<model.LeaderboardItem>) message.getPayload();
+            List<LeaderboardItem> leaderboardItems = (List<LeaderboardItem>) message.getPayload();
             updateLeaderboardUI(leaderboardItems);
           }
           break;
@@ -157,5 +154,10 @@ public class HomeController implements ClientListener {
   @FXML
   private void onChangePassword(ActionEvent event){
     SceneManager.switchScene(Screen.CHANGE_PASSWORD);
+  }
+
+  @FXML
+  private void onHistoryClick(ActionEvent event){
+
   }
 }

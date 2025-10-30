@@ -1,6 +1,6 @@
 package com.thanhthbm.cardgame.net;
 
-import model.Message;
+import model.DTO.Message;
 
 public interface ClientListener {
   void onConnected();

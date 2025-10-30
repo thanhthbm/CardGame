@@ -29,10 +29,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import model.Card;
-import model.CardUpdateInfo;
-import model.GameResult;
-import model.Message;
-import model.Message.MessageType;
+import model.DTO.CardUpdateInfo;
+import model.DTO.GameResult;
+import model.DTO.Message;
+import model.DTO.Message.MessageType;
 
 public class GameController implements ClientListener {
   @FXML private AnchorPane gamePane;

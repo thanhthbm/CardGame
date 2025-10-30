@@ -1,17 +1,10 @@
 package com.thanhthbm.cardgame.net;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
-import java.util.concurrent.atomic.AtomicBoolean;
-import javafx.application.Platform;
-import model.Message;
+import model.DTO.Message;
 
 public class GameClient {
   private static final GameClient instance = new GameClient();
@@ -20,7 +13,7 @@ public class GameClient {
     return instance;
   }
 
-  private final String host = "localhost";
+  private final String host = "26.150.208.229";
   private final int port = 5555;
   private Socket socket;
   private ObjectInputStream in;

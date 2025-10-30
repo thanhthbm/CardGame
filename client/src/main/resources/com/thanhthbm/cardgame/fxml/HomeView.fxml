@@ -33,7 +33,7 @@
 
       <Button fx:id="historyButton" layoutX="850.0" layoutY="505.0"
               prefHeight="80.0" prefWidth="360.0"
-              text="📜  Xem lịch sử" />
+              text="📜  Xem lịch sử" onAction="#onHistoryClick" />
 
       <Button fx:id="logoutButton" layoutX="850.0" layoutY="600.0"
               prefHeight="80.0" prefWidth="360.0"

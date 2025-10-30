@@ -1,7 +1,7 @@
 package com.thanhthbm.cardgame.context;
 
 import com.thanhthbm.cardgame.net.GameClient;
-import model.GameStartInfo;
+import model.DTO.GameStartInfo;
 import model.User;
 
 public class AppContext {

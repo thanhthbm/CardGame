@@ -1,6 +1,7 @@
-package model;
+package model.DTO;
 
 import java.io.Serializable;
+import model.Card;
 
 public class CardUpdateInfo implements Serializable {
   private static final long serialVersionUID = 1L;

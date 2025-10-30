@@ -5,11 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="add change password">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/model/GameHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/dao/GameHistoryDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/context/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/context/AppContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/ChangePasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/ChangePasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/ClientListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/ChangePasswordView.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/ChangePasswordView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/ChangePasswordView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/ChangePasswordView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/CardUpdateInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/CardUpdateInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/ChallengeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/ChallengeResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/ChangePasswordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/ChangePasswordDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/GameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/GameResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/GameStartInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/GameStartInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/LeaderboardItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/LeaderboardItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/RegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/RegisterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controller/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controller/GameRoomHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/GameRoomHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controller/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/MessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controller/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/ServerMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +158,7 @@
     </configuration>
     <configuration name="ClientApplication" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.thanhthbm.ClientApplication" />
-      <module name="client" />
+      <module name="CardGame" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.thanhthbm.*" />
@@ -223,6 +246,16 @@
       <workItem from="1760950634931" duration="351000" />
       <workItem from="1760951498196" duration="260000" />
       <workItem from="1760951792432" duration="4863000" />
+      <workItem from="1761005562741" duration="1460000" />
+      <workItem from="1761007925806" duration="9000" />
+      <workItem from="1761012634167" duration="1634000" />
+      <workItem from="1761035208041" duration="20000" />
+      <workItem from="1761201082466" duration="1794000" />
+      <workItem from="1761214884244" duration="471000" />
+      <workItem from="1761609365121" duration="6225000" />
+      <workItem from="1761634482850" duration="49000" />
+      <workItem from="1761697352237" duration="105000" />
+      <workItem from="1761794786915" duration="5508000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />
@@ -301,6 +334,29 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix" />

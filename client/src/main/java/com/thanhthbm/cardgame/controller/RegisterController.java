@@ -13,9 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import model.Message;
-import model.Message.MessageType;
-import model.RegisterDTO;
+import model.DTO.Message;
+import model.DTO.Message.MessageType;
+import model.DTO.RegisterDTO;
 
 public class RegisterController implements ClientListener {
   @FXML

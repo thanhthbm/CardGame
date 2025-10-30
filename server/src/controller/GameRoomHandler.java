@@ -11,10 +11,11 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import model.Card;
-import model.CardUpdateInfo;
-import model.GameResult;
-import model.Message;
-import model.Message.MessageType;
+import model.DTO.CardUpdateInfo;
+import model.DTO.GameResult;
+import model.DTO.Message;
+import model.DTO.Message.MessageType;
+import model.GameHistory;
 import model.User;
 import model.User.PlayerStatus;
 
@@ -24,6 +25,7 @@ public class GameRoomHandler extends Thread {
   private final ClientHandler player2;
   private volatile boolean isGameRunning = true; // Cờ để kiểm soát vòng lặp game an toàn
   private final UserDAO userDAO = new UserDAO();
+  private String deckType;
 
   private final BlockingQueue<Message> actionQueue;
   private List<Card> deck;
@@ -105,6 +107,13 @@ public class GameRoomHandler extends Thread {
     }
   }
 
+  public String getDeckType() {
+    return deckType;
+  }
+
+  public void setDeckType(String deckType) {
+    this.deckType = deckType;
+  }
 
   public synchronized void handlePlayerDisconnect(ClientHandler disconnectedPlayer) {
     if (!isGameRunning) return;
@@ -139,13 +148,22 @@ public class GameRoomHandler extends Thread {
     this.interrupt();
   }
 
+
   private void startRound() {
     player1Hand.clear();
     player2Hand.clear();
     deck = new ArrayList<>();
+
+    //2 loại bộ bài: bộ bài đầy đủ và bộ bài chỉ có từ 1 đến 9
     for (Rank rank : Rank.values()) {
       for (Suit suit : Suit.values()) {
-        deck.add(new Card(rank, suit));
+        if ("FULL".equals(this.deckType)){
+          deck.add(new Card(rank, suit));
+        } else {
+          if (rank.getSumValue() < 10){
+            deck.add(new Card(rank, suit));
+          }
+        }
       }
     }
     Collections.shuffle(this.deck);
@@ -188,6 +206,10 @@ public class GameRoomHandler extends Thread {
         player2Score
     );
     broadcast(new Message(MessageType.GAME_RESULT, gameResult));
+
+    GameHistory gameHistory = new GameHistory();
+
+
     server.sendPlayerList();
   }
 

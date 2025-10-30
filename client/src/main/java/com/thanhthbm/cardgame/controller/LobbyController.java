@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -28,10 +29,10 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
-import model.ChallengeResponse;
-import model.GameStartInfo;
-import model.Message;
-import model.Message.MessageType;
+import model.DTO.ChallengeResponse;
+import model.DTO.GameStartInfo;
+import model.DTO.Message;
+import model.DTO.Message.MessageType;
 import model.User;
 import model.User.PlayerStatus;
 
@@ -88,10 +89,13 @@ public class LobbyController implements ClientListener {
 
         case CHALLENGE_REQUEST:
           if (message.getPayload() instanceof String) {
-            String sender = (String) message.getPayload();
-            boolean accepted = getChallengeResponse(sender);
+            String playload = (String) message.getPayload();
+            String[] p = playload.split(Pattern.quote("|"));
+            String sender = p[0];
+            String deckType = p[1]; //FULL/SHORT
+            boolean accepted = getChallengeResponse(sender, deckType);
 
-            ChallengeResponse response = new ChallengeResponse(sender, accepted);
+            ChallengeResponse response = new ChallengeResponse(sender, accepted, deckType);
             Message m = new Message(MessageType.CHALLENGE_RESPONSE, response);
             client.sendMessage(m);
           }
@@ -156,7 +160,22 @@ public class LobbyController implements ClientListener {
         User player = getItem();
         System.out.println("Thách đấu: " + player.getUsername());
         // TODO: Gửi message CHALLENGE_PLAYER đến server
-         client.sendMessage(new Message(MessageType.CHALLENGE_PLAYER, player.getUsername()));
+        Alert alert = new Alert(AlertType.INFORMATION);
+        ButtonType fullBtn = new ButtonType("52 lá (FULL)");
+        ButtonType shortBtn = new ButtonType("36 lá (SHORT)");
+        ButtonType cancelBtn = new ButtonType("Hủy");
+
+        alert.getButtonTypes().setAll(fullBtn, shortBtn, cancelBtn);
+
+        String clicked = "";
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == fullBtn) {
+          client.sendMessage(new Message(MessageType.CHALLENGE_PLAYER, player.getUsername() + "|" + "FULL"));
+        } else if (result.get() == shortBtn) {
+          client.sendMessage(new Message(MessageType.CHALLENGE_PLAYER, player.getUsername() + "|" + "SHORT"));
+        }
+
       });
     }
 
@@ -187,10 +206,16 @@ public class LobbyController implements ClientListener {
 
   }
 
-  private boolean getChallengeResponse(String challengerName){
+  private boolean getChallengeResponse(String challengerName, String deckType){
     Alert alert = new Alert(AlertType.CONFIRMATION);
     alert.setTitle("Lời mời thách đấu");
-    alert.setHeaderText(challengerName + " muốn thách đấu bạn với bạn!");
+
+    if ("FULL".equals(deckType)) {
+      alert.setHeaderText(challengerName + " muốn thách đấu bạn với bạn với bộ bài 52 lá!");
+    } else {
+      alert.setHeaderText(challengerName + " muốn thách đấu bạn với bạn với bộ bài 36 lá!");
+    }
+
     alert.setContentText("Bạn có muốn chấp nhận không? Tự động từ chối lời mời sau 10 giây nếu không lựa chọn");
 
     ButtonType acceptButton = new ButtonType("Chấp nhận");

@@ -1,7 +1,8 @@
-package model;
+package model.DTO;
 
 import java.io.Serializable;
 import java.util.List;
+import model.Card;
 
 public class GameResult implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -12,8 +13,10 @@ public class GameResult implements Serializable {
 
   private List<Card> player1Hand;
   private List<Card> player2Hand;
+
   private int player1Score;
   private int player2Score;
+
 
   public GameResult(String winnerUsername, String p1Username, String p2Username, List<Card> p1Hand, List<Card> p2Hand, int p1Score, int p2Score) {
     this.winnerUsername = winnerUsername;
@@ -28,6 +31,8 @@ public class GameResult implements Serializable {
   public String getWinnerUsername() {
     return winnerUsername;
   }
+
+
 
   public void setWinnerUsername(String winnerUsername) {
     this.winnerUsername = winnerUsername;

@@ -10,12 +10,12 @@ public class User implements Serializable {
   private int score;
   private PlayerStatus status;
 
-  public enum PlayerStatus{
-    AVAILABLE,
-    INGAME,
-    PENDING,
-    BUSY
-  }
+    public enum PlayerStatus{
+      AVAILABLE,
+      INGAME,
+      PENDING,
+      BUSY
+    }
 
   public User() {
   }

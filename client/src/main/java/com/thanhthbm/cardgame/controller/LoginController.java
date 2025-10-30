@@ -11,8 +11,8 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
-import model.Message;
-import model.Message.MessageType;
+import model.DTO.Message;
+import model.DTO.Message.MessageType;
 import model.User;
 
 public class LoginController implements ClientListener {

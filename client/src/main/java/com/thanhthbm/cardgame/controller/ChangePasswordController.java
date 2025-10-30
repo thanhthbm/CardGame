@@ -11,13 +11,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
-import model.ChangePasswordDTO;
-import model.Message;
-import model.Message.MessageType;
+import model.DTO.ChangePasswordDTO;
+import model.DTO.Message;
+import model.DTO.Message.MessageType;
 
 public class ChangePasswordController implements ClientListener {
   private GameClient client;
-
+  
   @FXML
   private AnchorPane changePasswordPane;
   @FXML

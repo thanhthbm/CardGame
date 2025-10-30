@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import model.Message;
-import model.Message.MessageType;
+import model.DTO.Message;
+import model.DTO.Message.MessageType;
 import model.User;
 
 public class ServerMain {
@@ -68,7 +68,7 @@ public class ServerMain {
     }
   }
 
-  public Map<String, ClientHandler> getOnlineClients() {
+  public Map<String, ClientHandler> getOnlineClients(){
     return onlineClients;
   }
 

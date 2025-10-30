@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.LeaderboardItem;
-import model.RegisterDTO;
+import model.DTO.LeaderboardItem;
+import model.DTO.RegisterDTO;
 import model.User;
 
 public class UserDAO extends DAO{
@@ -138,6 +138,27 @@ public class UserDAO extends DAO{
     }
 
     return false;
+  }
+
+  public User getUserByUsername(String username) {
+    String query = "Select * from users where username = ?";
+
+    User user = null;
+    try(PreparedStatement statement = connection.prepareStatement(query)){
+      statement.setString(1, username);
+      ResultSet rs = statement.executeQuery();
+      if (rs.next()) {
+        user = new User();
+        user.setId(rs.getInt("id"));
+        user.setScore(rs.getInt("score"));
+        user.setUsername(rs.getString("username"));
+      }
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+    return user;
   }
 
 
