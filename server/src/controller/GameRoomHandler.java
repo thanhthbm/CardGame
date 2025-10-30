@@ -125,19 +125,6 @@ public class GameRoomHandler extends Thread {
 
     System.out.println("GameRoom: " + winnerUser.getUsername() + " thắng do " + loserUser.getUsername() + " " + reason);
 
-    History h = new History();
-    h.setPlayer1(winnerUser);
-    h.setPlayer2(loserUser);
-    h.setScore1(1);
-    h.setScore2(0);
-
-    if(historyDAO.addHistory(h)){
-        System.out.println("Lưu lịch sử đấu thành công!");
-    } else {
-        System.out.println("Lưu lịch sử thất bại!");
-    }
-
-
     userDAO.addScore(winnerUser.getId(), 1);
     winnerUser.setScore(winnerUser.getScore() + 1);
 
@@ -167,11 +154,19 @@ public class GameRoomHandler extends Thread {
     int player1Score = player1Hand.stream().mapToInt(card -> card.getRank().getSumValue()).sum() % 10;
     int player2Score = player2Hand.stream().mapToInt(card -> card.getRank().getSumValue()).sum() % 10;
 
+      History h = new History();
+      h.setScore1(1);
+      h.setScore2(0);
+
     User winner = null;
     if (player1Score > player2Score) {
       winner = player1.getUser();
+        h.setPlayer1(player1.getUser());
+        h.setPlayer2(player2.getUser());
     } else if (player2Score > player1Score) {
       winner = player2.getUser();
+        h.setPlayer1(player2.getUser());
+        h.setPlayer2(player1.getUser());
     } else {
       Collections.sort(player1Hand);
       Collections.sort(player2Hand);
@@ -183,6 +178,13 @@ public class GameRoomHandler extends Thread {
         winner = player2.getUser();
       }
     }
+
+
+      if(historyDAO.addHistory(h)){
+          System.out.println("Lưu lịch sử đấu thành công!");
+      } else {
+          System.out.println("Lưu lịch sử thất bại!");
+      }
 
     if (winner != null) {
       System.out.println("Winner is " + winner.getUsername());

@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.*;
+import model.Message;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -76,7 +77,6 @@ public class HistoryController implements ClientListener {
 
     private class HistoryListCell extends ListCell<History> {
 
-        // 1. Khai báo các thành phần UI
         private VBox rootNode;
         private Label player1Name;
         private Label player2Name;
@@ -91,30 +91,25 @@ public class HistoryController implements ClientListener {
         public HistoryListCell() {
             super();
 
-            // Khởi tạo các thành phần
             player1Name = new Label();
             player2Name = new Label();
             scoreLabel = new Label();
             matchDate = new Label();
             spacer = new Region();
 
-            // Thiết lập Font/Style (Giống như FXML đã làm)
             player1Name.setFont(new Font("System Bold", 14.0));
             player2Name.setFont(new Font("System Bold", 14.0));
             scoreLabel.setStyle("-fx-font-size: 13px; -fx-font-weight: bold;");
             matchDate.setStyle("-fx-font-size: 12px; -fx-font-style: italic;");
 
-            // Tạo Hàng 1 (Tên)
             HBox nameRow = new HBox(5.0, player1Name, new Label("vs"), player2Name);
             nameRow.setAlignment(Pos.CENTER_LEFT);
 
-            // Tạo Hàng 2 (Điểm & Ngày)
-            HBox.setHgrow(spacer, Priority.ALWAYS); // Để đẩy ngày sang phải
+            HBox.setHgrow(spacer, Priority.ALWAYS);
             HBox scoreRow = new HBox(scoreLabel, spacer, matchDate);
             scoreRow.setAlignment(Pos.CENTER_LEFT);
 
-            // Tạo Node gốc VBox
-            rootNode = new VBox(5.0, nameRow, scoreRow); // 5.0 là spacing
+            rootNode = new VBox(5.0, nameRow, scoreRow);
             rootNode.setPadding(new Insets(8, 12, 8, 12));
         }
 
@@ -152,7 +147,6 @@ public class HistoryController implements ClientListener {
                     player2Name.setTextFill(Color.BLACK);
                 }
 
-                // 4. Đặt layout đã tạo vào cell
                 setGraphic(rootNode);
             }
         }

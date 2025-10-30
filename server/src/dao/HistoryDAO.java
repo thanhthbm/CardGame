@@ -26,7 +26,7 @@ public class HistoryDAO extends DAO{
             try(ResultSet rs = ps.executeQuery();){
                 while(rs.next()){
                     History h = new History();
-                    h.setMatchTime(rs.getDate("match_time"));
+                    h.setMatchTime(rs.getTimestamp("match_time"));
                     h.setScore1(rs.getInt("your_score"));
                     h.setScore2(rs.getInt("opponent_score"));
 
