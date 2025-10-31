@@ -2,6 +2,7 @@ package controller;
 
 import constant.Rank;
 import constant.Suit;
+import dao.HistoryDAO;
 import dao.UserDAO;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import model.DTO.CardUpdateInfo;
 import model.DTO.GameResult;
 import model.DTO.Message;
 import model.DTO.Message.MessageType;
-import model.GameHistory;
+import model.History;
 import model.User;
 import model.User.PlayerStatus;
 
@@ -26,6 +27,7 @@ public class GameRoomHandler extends Thread {
   private volatile boolean isGameRunning = true; // Cờ để kiểm soát vòng lặp game an toàn
   private final UserDAO userDAO = new UserDAO();
   private String deckType;
+  private HistoryDAO historyDAO;
 
   private final BlockingQueue<Message> actionQueue;
   private List<Card> deck;
@@ -37,6 +39,7 @@ public class GameRoomHandler extends Thread {
     this.player2 = player2;
     this.server = server;
     this.actionQueue = new LinkedBlockingQueue<>();
+    this.historyDAO = new HistoryDAO();
   }
 
   @Override
@@ -173,11 +176,19 @@ public class GameRoomHandler extends Thread {
     int player1Score = player1Hand.stream().mapToInt(card -> card.getRank().getSumValue()).sum() % 10;
     int player2Score = player2Hand.stream().mapToInt(card -> card.getRank().getSumValue()).sum() % 10;
 
+    History h = new History();
+    h.setScore1(1);
+    h.setScore2(0);
+
     User winner = null;
     if (player1Score > player2Score) {
       winner = player1.getUser();
+      h.setPlayer1(player1.getUser());
+      h.setPlayer2(player2.getUser());
     } else if (player2Score > player1Score) {
       winner = player2.getUser();
+      h.setPlayer1(player2.getUser());
+      h.setPlayer2(player1.getUser());
     } else {
       Collections.sort(player1Hand);
       Collections.sort(player2Hand);
@@ -188,6 +199,12 @@ public class GameRoomHandler extends Thread {
       } else {
         winner = player2.getUser();
       }
+    }
+
+    if(historyDAO.addHistory(h)){
+      System.out.println("Lưu lịch sử đấu thành công!");
+    } else {
+      System.out.println("Lưu lịch sử thất bại!");
     }
 
     if (winner != null) {
@@ -206,8 +223,6 @@ public class GameRoomHandler extends Thread {
         player2Score
     );
     broadcast(new Message(MessageType.GAME_RESULT, gameResult));
-
-    GameHistory gameHistory = new GameHistory();
 
 
     server.sendPlayerList();

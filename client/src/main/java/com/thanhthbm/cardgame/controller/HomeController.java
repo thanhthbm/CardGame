@@ -157,7 +157,7 @@ public class HomeController implements ClientListener {
   }
 
   @FXML
-  private void onHistoryClick(ActionEvent event){
-
+  private void onViewHistory(ActionEvent event){
+    SceneManager.switchScene(Screen.HISTORY);
   }
 }
