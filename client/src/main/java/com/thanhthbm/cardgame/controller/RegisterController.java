@@ -1,5 +1,6 @@
 package com.thanhthbm.cardgame.controller;
 
+import com.thanhthbm.cardgame.constants.AlertFactory;
 import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.ClientListener;
@@ -7,8 +8,6 @@ import com.thanhthbm.cardgame.net.GameClient;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -51,7 +50,7 @@ public class RegisterController implements ClientListener {
       switch (message.getType()) {
         case REGISTER_SUCCESS:
           System.out.println("Register success");
-          showAlert("Thành công", "Đăng ký tài khoản thành công!");
+          AlertFactory.showAlert(registerPane.getScene().getWindow(), "Thành công", "Đăng ký tài khoản thành công!");
           usernameField.clear();
           passwordField.clear();
           break;
@@ -61,7 +60,7 @@ public class RegisterController implements ClientListener {
           if (message.getPayload() instanceof String) {
             reason = (String) message.getPayload();
           }
-          showAlert("Thất bại", reason);
+          AlertFactory.showAlert(registerPane.getScene().getWindow(), "Thất bại", reason);
           break;
 
         default:
@@ -77,17 +76,17 @@ public class RegisterController implements ClientListener {
     String password = passwordField.getText().trim();
 
     if (username.isEmpty() || password.isEmpty()) {
-      showAlert("Lỗi định dạng", "Tên đăng nhập và mật khẩu không thể để trống");
+      AlertFactory.showAlert(registerPane.getScene().getWindow(), "Lỗi định dạng", "Tên đăng nhập và mật khẩu không thể để trống");
       return;
     }
 
     if (username.length() < 4){
-      showAlert("Lỗi định dạng", "Tên đăng nhập phải dài hơn 4 ký tự");
+      AlertFactory.showAlert(registerPane.getScene().getWindow(), "Lỗi định dạng", "Tên đăng nhập phải dài hơn 4 ký tự");
       return;
     }
 
     if (password.length() < 6){
-      showAlert("Lỗi mật khẩu", "Mật khẩu phải dài hơn 6 ký tự");
+      AlertFactory.showAlert(registerPane.getScene().getWindow(), "Lỗi mật khẩu", "Mật khẩu phải dài hơn 6 ký tự");
       return;
     }
 
@@ -101,13 +100,4 @@ public class RegisterController implements ClientListener {
     SceneManager.switchScene(Screen.LOGIN);
   }
 
-  private void showAlert(String title, String message) {
-    Alert alert = new Alert(AlertType.INFORMATION);
-    alert.setTitle(title);
-    alert.setHeaderText(null);
-    alert.setContentText(message);
-    alert.initOwner(registerPane.getScene().getWindow());
-    alert.getDialogPane().lookup(".content.label").setStyle("-fx-text-fill: black;");
-    alert.showAndWait();
-  }
 }

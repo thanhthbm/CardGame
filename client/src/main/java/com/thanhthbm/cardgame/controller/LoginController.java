@@ -1,5 +1,6 @@
 package com.thanhthbm.cardgame.controller;
 
+import com.thanhthbm.cardgame.constants.AlertFactory;
 import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.ClientListener;
@@ -9,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import model.DTO.Message;
 import model.DTO.Message.MessageType;
@@ -35,7 +35,7 @@ public class LoginController implements ClientListener {
     String username = usernameField.getText().trim();
     String password = passwordField.getText().trim();
     if (username.isEmpty() || password.isEmpty()) {
-      showAlertDialog(AlertType.ERROR, "Lỗi Đăng nhập", "Tên đăng nhập và mật khẩu không được để trống.");
+      AlertFactory.showAlert(loginPane.getScene().getWindow(), "Lỗi Đăng nhập", "Tên đăng nhập và mật khẩu không được để trống.");
       return;
     }
 
@@ -57,7 +57,7 @@ public class LoginController implements ClientListener {
         SceneManager.switchScene(Screen.HOME);
       } else if (message.getType() == MessageType.LOGIN_FAILED) {
         loginButton.setDisable(false);
-        showAlertDialog(AlertType.ERROR, "Đăng nhập thất bại", (String) message.getPayload());
+        AlertFactory.showAlert(loginPane.getScene().getWindow(), "Đăng nhập thất bại", (String) message.getPayload());
       }
     });
   }
@@ -67,22 +67,9 @@ public class LoginController implements ClientListener {
     Platform.runLater(() -> {
       closeWaitingDialog();
       loginButton.setDisable(true);
-      showAlertDialog(AlertType.ERROR, "Mất kết nối", "Không thể kết nối đến server: " + reason);
+      AlertFactory.showAlert(loginPane.getScene().getWindow(), "Mất kết nối", "Không thể kết nối đến server: " + reason);
     });
   }
-
-
-
-  private void showAlertDialog(AlertType type, String title, String content) {
-    Alert alert = new Alert(type);
-    alert.initOwner(loginPane.getScene().getWindow());
-    alert.setTitle(title);
-    alert.setHeaderText(null);
-    alert.setContentText(content);
-    alert.getDialogPane().lookup(".content.label").setStyle("-fx-text-fill: black;");
-    alert.showAndWait();
-  }
-
   private void showWaitingDialog(String title, String content) {
     closeWaitingDialog();
 

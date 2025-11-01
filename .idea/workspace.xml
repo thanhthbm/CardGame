@@ -5,18 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c89a7ea1-9151-458f-9329-db504bfd5a57" name="Changes" comment="update option to either play with 52  card deck or 36 card decl">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HistoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/HistoryView.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HistoryView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/AlertFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/AlertController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/ChooseDeckDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/ConfirmDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameResultDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/SimpleConfirmDialogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/AlertView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/ConfirmDialog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/css/GameResultDialog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/AlertView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/ChooseDeckDialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/ConfirmDialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/GameResultDialog.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/SimpleConfirmDialog.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/constants/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/ChangePasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/ChangePasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/com/thanhthbm/cardgame/fxml/HomeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/DTO/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/DTO/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/model/GameHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/model/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controller/GameRoomHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/GameRoomHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controller/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controller/MessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dao/GameHistoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/HistoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LobbyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/thanhthbm/cardgame/net/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dao/DAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +38,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
@@ -44,7 +56,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/thanhthbm/CardGame.git&quot;,
-    &quot;accountId&quot;: &quot;bce26532-642c-4a00-906e-b78721c4b82e&quot;
+    &quot;accountId&quot;: &quot;a5bf0a8f-6b01-43ef-8540-0de14fc05ac2&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -82,7 +94,8 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Thanh/Downloads/Compressed/CardGame/client/src/main/resources/com/thanhthbm/cardgame/images&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/LTM/CardGame&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -142,7 +155,7 @@
     </configuration>
     <configuration name="ClientApplication" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.thanhthbm.ClientApplication" />
-      <module name="CardGame" />
+      <module name="client" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.thanhthbm.*" />
@@ -185,8 +198,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -242,6 +255,9 @@
       <workItem from="1761794786915" duration="5790000" />
       <workItem from="1761813480501" duration="10000" />
       <workItem from="1761875565608" duration="1377000" />
+      <workItem from="1761918603845" duration="4112000" />
+      <workItem from="1761989068293" duration="1638000" />
+      <workItem from="1761990934628" duration="1854000" />
     </task>
     <task id="LOCAL-00001" summary="refactor">
       <option name="closed" value="true" />

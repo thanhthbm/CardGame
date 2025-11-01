@@ -1,5 +1,6 @@
 package com.thanhthbm.cardgame.controller;
 
+import com.thanhthbm.cardgame.constants.AlertFactory;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.net.ClientListener;
@@ -7,8 +8,6 @@ import com.thanhthbm.cardgame.net.GameClient;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import model.DTO.ChangePasswordDTO;
@@ -17,7 +16,7 @@ import model.DTO.Message.MessageType;
 
 public class ChangePasswordController implements ClientListener {
   private GameClient client;
-  
+
   @FXML
   private AnchorPane changePasswordPane;
   @FXML
@@ -92,22 +91,10 @@ public class ChangePasswordController implements ClientListener {
   }
 
   private void showSuccessAlert(String reason){
-    Alert alert = new Alert(AlertType.INFORMATION);
-    alert.setTitle("Thành công");
-    alert.setHeaderText(null);
-    alert.setContentText(reason);
-    alert.initOwner(changePasswordPane.getScene().getWindow());
-    alert.showAndWait();
+    AlertFactory.showAlert(changePasswordPane.getScene().getWindow(), "Thành công", reason);
   }
 
   private void showErrorAlert(String reason){
-    Alert alert = new Alert(AlertType.ERROR);
-    alert.setTitle("Error");
-    alert.setHeaderText(null);
-    alert.setContentText(reason);
-    alert.initOwner(changePasswordPane.getScene().getWindow());
-    alert.showAndWait();
+    AlertFactory.showAlert(changePasswordPane.getScene().getWindow(), "Lỗi", reason);
   }
 }
-
-

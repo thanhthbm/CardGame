@@ -1,9 +1,10 @@
 package com.thanhthbm.cardgame.controller;
 
+// Thêm AlertFactory
+import com.thanhthbm.cardgame.constants.AlertFactory;
 import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import com.thanhthbm.cardgame.net.ClientListener;
-
 import com.thanhthbm.cardgame.net.GameClient;
 import constant.Rank;
 import constant.Suit;
@@ -17,8 +18,9 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+// Xóa Alert và ButtonType
+// import javafx.scene.control.Alert;
+// import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -144,19 +146,11 @@ public class GameController implements ClientListener {
 
           if (message.getPayload() instanceof String) {
             String reason = (String) message.getPayload();
-            Alert forfeitAlert = new Alert(Alert.AlertType.INFORMATION);
-            forfeitAlert.setTitle("Bạn đã thắng");
-            forfeitAlert.setHeaderText(null);
-            forfeitAlert.setContentText(reason);
-            forfeitAlert.initOwner(gamePane.getScene().getWindow());
-            forfeitAlert.getDialogPane().lookup(".content.label").setStyle("-fx-text-fill: black;");
-
-            forfeitAlert.showAndWait().ifPresent(response -> {
-              LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
-              if (lobbyController != null) {
-                lobbyController.refresh();
-              }
-            });
+            AlertFactory.showAlert(gamePane.getScene().getWindow(), "Bạn đã thắng", reason);
+            LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
+            if (lobbyController != null) {
+              lobbyController.refresh();
+            }
           }
           break;
       }
@@ -211,53 +205,29 @@ public class GameController implements ClientListener {
 
   private void showResultDialog(GameResult result) {
     String myUsername = AppContext.getInstance().getCurrentUser().getUsername();
-    boolean iAmWinner = myUsername.equals(result.getWinnerUsername());
-
-
-
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("Kết quả ván đấu");
-    alert.setHeaderText(iAmWinner ? "Chúc mừng, bạn đã thắng!" : "Bạn đã thua!");
-
-    String content = String.format(
-        "Người thắng: %s\n\n" +
-            "Bài của %s (Điểm: %d): %s\n" +
-            "Bài của %s (Điểm: %d): %s",
-        result.getWinnerUsername(),
-        result.getPlayer1Username(), result.getPlayer1Score(), result.getPlayer1Hand(),
-        result.getPlayer2Username(), result.getPlayer2Score(), result.getPlayer2Hand()
-    );
-    alert.setContentText(content);
-
-    alert.initOwner(gamePane.getScene().getWindow());
-
-    alert.showAndWait().ifPresent(response -> {
-      LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
-
-      if (lobbyController != null) {
-        lobbyController.refresh();
-      }
-    });
+    AlertFactory.showGameResult(gamePane.getScene().getWindow(), result, myUsername);
+    LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
+    if (lobbyController != null) {
+      lobbyController.refresh();
+    }
   }
 
   @FXML
   private void onExitGame(ActionEvent event) {
     System.out.println("Exit game requested.");
-    Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
-    confirmAlert.setTitle("Xác nhận Thoát");
-    confirmAlert.setHeaderText("Bạn có chắc chắn muốn thoát khỏi trận đấu?");
-    confirmAlert.setContentText("Bạn sẽ bị xử thua nếu thoát ngay bây giờ.");
-    confirmAlert.initOwner(gamePane.getScene().getWindow());
+    boolean confirmed = AlertFactory.showConfirmation(
+            gamePane.getScene().getWindow(),
+            "Xác nhận Thoát",
+            "Bạn có chắc chắn muốn thoát khỏi trận đấu?\nBạn sẽ bị xử thua nếu thoát ngay bây giờ."
+    );
 
-    confirmAlert.showAndWait().ifPresent(response -> {
-      if (response == ButtonType.OK) {
-        client.sendMessage(new Message(MessageType.EXIT_GAME, AppContext.getInstance().getCurrentUser().getUsername()));
+    if (confirmed) {
+      client.sendMessage(new Message(MessageType.EXIT_GAME, AppContext.getInstance().getCurrentUser().getUsername()));
 
-        LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
-        if (lobbyController != null) {
-          lobbyController.refresh();
-        }
+      LobbyController lobbyController = SceneManager.switchScene(Screen.LOBBY);
+      if (lobbyController != null) {
+        lobbyController.refresh();
       }
-    });
+    }
   }
 }

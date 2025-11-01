@@ -1,0 +1,40 @@
+
+.alert-box {
+    -fx-background-color: rgba(30, 30, 30, 0.85);
+    -fx-background-radius: 20;
+    -fx-border-color: #FFD369;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 20, 0, 0, 5);
+    -fx-font-family: "Playfair Display";
+    -fx-max-width: 450px;
+}
+
+.alert-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD369;
+}
+
+.alert-message {
+    -fx-font-size: 16px;
+    -fx-text-fill: #EEEEEE;
+    -fx-text-alignment: center;
+}
+
+.alert-button {
+    -fx-background-color: linear-gradient(to right, #FFD369, #FF8C32);
+    -fx-text-fill: black;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 40px;
+    -fx-cursor: hand;
+}
+
+.alert-button:hover {
+    -fx-background-color: linear-gradient(to right, #FF8C32, #FFD369);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}

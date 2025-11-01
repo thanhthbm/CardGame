@@ -1,11 +1,10 @@
 package com.thanhthbm.cardgame.controller;
 
+import com.thanhthbm.cardgame.constants.AlertFactory;
 import com.thanhthbm.cardgame.context.AppContext;
 import com.thanhthbm.cardgame.constants.Screen;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import model.DTO.LeaderboardItem;
 import com.thanhthbm.cardgame.net.ClientListener;
@@ -83,19 +82,19 @@ public class HomeController implements ClientListener {
 
   @FXML
   private void onLogout(ActionEvent event) {
-    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-    alert.setTitle("Xác nhận");
-    alert.setContentText("Bạn có chắc chắn muốn đăng xuất?");
-    alert.initOwner(homePane.getScene().getWindow());
-    alert.showAndWait();
-    if (alert.getResult() == ButtonType.OK) {
+    boolean confirmed = AlertFactory.showConfirmation(
+            homePane.getScene().getWindow(),
+            "Xác nhận",
+            "Bạn có chắc chắn muốn đăng xuất?"
+    );
+
+    if (confirmed) {
       Message message = new Message(Message.MessageType.LOGOUT, null);
       client.sendMessage(message);
 
       AppContext.getInstance().setCurrentUser(null);
       SceneManager.switchScene(Screen.LOGIN);
     }
-
   }
 
 

@@ -1,0 +1,54 @@
+
+@import "AlertView.css";
+
+.result-dialog {
+    -fx-background-color: rgba(30, 30, 30, 0.9);
+    -fx-background-radius: 20;
+    -fx-border-color: #FFD369;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 20, 0, 0, 5);
+    -fx-font-family: "Playfair Display";
+    -fx-max-width: 600px;
+    -fx-text-fill: #EEEEEE; /* Màu chữ chung */
+}
+
+/* Style cho tiêu đề THẮNG */
+.result-title-victory {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD369;
+    -fx-effect: dropshadow(gaussian, #FFD369, 10, 0, 0, 0);
+}
+
+.result-title-defeat {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #AAAAAA;
+}
+
+.player-box {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-radius: 10;
+    -fx-padding: 20;
+    -fx-min-width: 250px;
+}
+
+.player-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FF8C32;
+}
+
+.player-score {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.player-hand {
+    -fx-font-size: 14px;
+    -fx-text-fill: #DDDDDD;
+}

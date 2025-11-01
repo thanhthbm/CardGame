@@ -1,0 +1,19 @@
+
+@import "AlertView.css";
+
+.cancel-button {
+    -fx-background-color: linear-gradient(to right, #B0B0B0, #808080);
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 40px;
+    -fx-cursor: hand;
+}
+
+.cancel-button:hover {
+    -fx-background-color: linear-gradient(to right, #808080, #B0B0B0);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
