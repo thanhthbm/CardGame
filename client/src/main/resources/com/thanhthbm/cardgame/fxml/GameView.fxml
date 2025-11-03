@@ -55,8 +55,8 @@
         </VBox>
       </children>
     </VBox>
-      <Label fx:id="score1Label" alignment="CENTER" contentDisplay="CENTER" layoutX="258.0" layoutY="518.0" prefHeight="38.0" prefWidth="61.0" text="score1" />
-      <Label fx:id="score2Label" alignment="CENTER" contentDisplay="CENTER" layoutX="897.0" layoutY="518.0" prefHeight="38.0" prefWidth="61.0" text="score2" />
+    <Label fx:id="score1Label" alignment="CENTER" contentDisplay="CENTER" layoutX="258.0" layoutY="518.0" text="score1" />
+    <Label fx:id="score2Label" alignment="CENTER" contentDisplay="CENTER" layoutX="897.0" layoutY="518.0" text="score2" />
 
   </children>
 </AnchorPane>
