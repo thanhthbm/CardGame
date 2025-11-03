@@ -46,6 +46,7 @@ public class GameController implements ClientListener {
   @FXML private Label timerLabel;
   @FXML private VBox timerBox;
   @FXML private ImageView card0, card1, card2, card3, card4, card5, card6, card7, card8, card9;
+  @FXML Label score1Label, score2Label;
 
   private List<ImageView> cardImageViews;
   private GameClient client;
@@ -62,6 +63,8 @@ public class GameController implements ClientListener {
     client.setListener(this);
     player1NameLabel.setText(AppContext.getInstance().getStartInfo().getPlayer1Name());
     player2NameLabel.setText(AppContext.getInstance().getStartInfo().getPlayer2Name());
+    score1Label.setText("0");
+    score2Label.setText("0");
     setupTimer();
   }
 
@@ -131,6 +134,7 @@ public class GameController implements ClientListener {
           if (message.getPayload() instanceof CardUpdateInfo) {
             CardUpdateInfo info = (CardUpdateInfo) message.getPayload();
             flipCard(info.getCardIndex(), info.getPickedCard());
+            updateScoreLabel(info);
           }
           break;
 
@@ -155,6 +159,21 @@ public class GameController implements ClientListener {
           break;
       }
     });
+  }
+
+  private void updateScoreLabel(CardUpdateInfo info) {
+    String username = info.getUsername();
+    Card card = info.getPickedCard();
+
+    if (username.equalsIgnoreCase(player1NameLabel.getText())) {
+      int currentScore = Integer.parseInt(score1Label.getText());
+      score1Label.setText(Integer.toString(currentScore + card.getRank().getSumValue()));
+    } else if (username.equalsIgnoreCase(player2NameLabel.getText())) {
+      int currentScore = Integer.parseInt(score2Label.getText());
+      score2Label.setText(Integer.toString(currentScore + card.getRank().getSumValue()));
+    }
+
+
   }
 
   private void flipCard(int index, Card card) {

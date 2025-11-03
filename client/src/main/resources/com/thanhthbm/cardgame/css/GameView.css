@@ -42,3 +42,8 @@
 #exitButton:hover {
   -fx-background-color: rgba(255, 255, 255, 0.4);
 }
+
+#score1Label #score2Label{
+  -fx-text-fill: red;
+  -fx-font-weight: bold;
+}

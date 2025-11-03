@@ -58,6 +58,7 @@ public class MessageHandler {
         break;
       case CHANGE_PASSWORD:
         handleChangePassword(message);
+        break;
       case GET_HISTORY_LIST:
         handleGetHistoryList(message);
         break;
